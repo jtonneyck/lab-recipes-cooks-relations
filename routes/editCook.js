@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Recipe = require("../models/recipe");
 const Cook = require("../models/cook");
-const bodyParser = require("body-parser");
 
 router.get("/cook/edit/:id", (req, res) => {
 Cook.findById(req.params.id)
