@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const User = require("../models/user");
+const bcrypt = require("bcrypt");
 
 app.get("/user/login", (req,res)=> {
     res.render("loginUser");
@@ -12,14 +13,16 @@ app.post("/user/login", (req,res)=> {
         if (!user){
             res.send("Ivalid credentials");
         }
-        else if (req.body.password === user.password){
-            req.session.currentUser = user;
+        else{
+            bcrypt.compare(req.body.password, user.password, function(err, correct) {
+                if(correct){
+                    req.session.currentUser = user;
             res.redirect("/");
-        }
-        else {
-            res.send("Ivalid credentials");
-        }
-    })
+                } else {
+                    res.send(console.log("Ivalid credentials"))
+                } 
+            });
+        }})
     .catch(err => console.log(err));
 });
 

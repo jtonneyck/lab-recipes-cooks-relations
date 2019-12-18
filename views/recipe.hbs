@@ -1,8 +1,11 @@
-<h1>YOU CHOSE:</h1>
+<div class="recipedetail">
 <h1>{{recipe.title}}</h1>
-<img src="{{recipe.image}}" alt="">
-<img src="{{recipe.creator.image}}" alt="">
-<h2>{{recipe.creator.name}}</h2> <button onclick="window.location.href = '/cook/edit/{{recipe.creator.id}}';">Edit Cook</button> <button onclick="window.location.href = '/cook/delete/{{recipe.creator.id}}';">Delete this cook!</button>
-<h3>Cuisine:{{recipe.cuisine}}, Difficulty:{{recipe.level}}</h3>
+<img src="{{recipe.image}}" alt="" id="recipeimage"> 
+<h2>Recipe by: {{recipe.creator.name}}</h2>
+<img src="{{recipe.creator.image}}" alt="" id="cookimage">
+<br>
+<button onclick="window.location.href = '/cook/edit/{{recipe.creator.id}}';">Edit Cook</button> <button onclick="window.location.href = '/cook/delete/{{recipe.creator.id}}';">Delete cook</button>
+<h3>Cuisine: {{recipe.cuisine}}, Difficulty: {{recipe.level}}</h3>
 <p>{{recipe.ingredients}}</p>
 <h5>Duration: {{recipe.duration}} Minutes</h5>
+</div>

@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="/public/stylesheets/styles.css">
+    <title>Recipe Database</title>
 </head>
 <nav>
+    <a href="/"><p>HOME</p></a>
+    {{#if user}}
+    <a href="/user/login"><li>logout</li></a>
+    {{else }}
     <ul>
         <a href="/user/signup"><li>signup</li></a>
         <a href="/user/login"><li>login</li></a>
     </ul>
+    {{/if}}
 </nav>
 <body>
     {{{body}}}

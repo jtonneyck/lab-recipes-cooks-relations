@@ -12,6 +12,9 @@ mongoose.connect("mongodb://localhost/recipeLab")
 const hbs = require("hbs");
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
+app.set("view engine", "hbs");
+app.use('/public', express.static('public'));
+hbs.registerPartials(__dirname + "/views/partials/");
 
 const session = require("express-session");
 
@@ -39,5 +42,6 @@ app.use("/", require("./routes/editCook"));
 app.use("/", require("./routes/createRecipe"));
 app.use("/", require("./routes/createCook"));
 app.use("/", require("./routes/deleteCook"));
+
 
 app.listen(3000);

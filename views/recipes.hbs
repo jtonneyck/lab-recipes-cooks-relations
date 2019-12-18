@@ -1,6 +1,10 @@
-<h1>PICK A RECIPE!</h1>
+<h1 class="headline">RECIPES</h1>
+<div class="recipescontainer">
 {{#each recipes}}
-<a href="/recipe/{{this.id}}"><h3>{{this.title}}</h3></a>
+{{> recipeItem}}
 {{/each}}
-<h3>... or <a href="/recipes/create">CREATE</a> a new Recipe!</h3>
-<h3>You can now even <a href="/cook/create">CREATE</a> a cook!</h3>
+</div>
+<div class="createbuttoncontainer">
+<button style="cursor: pointer;" onclick="window.location='/recipes/create';">CREATE RECIPE</button>
+<button style="cursor: pointer;" onclick="window.location='/cook/create';">CREATE COOK</button>
+</div>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+body {
+    font-family: "Lato";
+    color: grey;
+}
+
+p {
+    color: black;
+}
+
+nav {
+height: 40px;
+background-color: antiquewhite;
+border-bottom: solid 3px #ffcc88;
+margin: -20px -10px 10px -10px;
+display: flex;
+flex-wrap: row;
+align-items: center;
+justify-content: space-between;
+padding: 5px 20px 0 20px;
+}
+
+nav ul {
+display: flex;
+flex-wrap: row;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px
+}
+
+nav li {
+    list-style: none;
+}
+
+.headline {
+text-align: center;
+text-decoration: none;
+}
+
+input {
+ border: 2px solid #ffcc88;
+ background-color: white;
+ padding: 3px;
+ border-radius: 5px;
+}
+
+.credentials {
+ width: 400px;
+ margin: 0 auto;
+}
+
+.credentials form {
+    display: flex;
+    flex-flow: column;
+}
+
+.credentials input{
+    margin-bottom: 15px;
+}
+
+.credentials label{
+    color: grey;
+}
+
+button {
+    border: none;
+    font-family: "Lato";
+    font-weight: 700;
+    background-color:  #ffcc88;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.recipescontainer {
+    display: flex;
+    width: 90%;
+    flex-flow: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.recipeblock {
+    width: 22%;
+    min-width: 300px;
+    padding: 5px 10px;
+    margin: 10px;
+    box-sizing: border-box;    
+    border: 2px dotted antiquewhite;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recipeblock img {
+    width: 100%;
+}
+
+.createbuttoncontainer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.createbuttoncontainer button{
+    margin-bottom: 15px; 
+    width: 300px;
+}
+
+.recipedetail {
+    width: 80%;
+    margin: 0 auto;
+    border: 2px dotted antiquewhite;
+    padding: 0 30px;
+    margin-top: 20px;
+}
+
+#recipeimage{
+    width: 100%
+}
+
+#cookimage{
+    margin-bottom: 10px;
+    width: 80px;
+}
