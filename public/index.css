@@ -1,6 +1,6 @@
 body {
   font-family: 'Baloo 2', cursive;
-  background-image: url("kitchen.jpg");
+  background-image: url("nordwood-themes-Tmz8FThN_BE-unsplash.jpg");
   background-repeat: no-repeat; 
   background-size: cover;
   background-attachment: fixed;
@@ -8,7 +8,7 @@ body {
 }
 
 h1{
-  color: #e07300;
+  color: #FE563D;
 }
 
 .nav-item {
@@ -17,6 +17,10 @@ h1{
 
 .nav-link {
   color: white;  
+}
+
+.main-menu{
+  text-align: center;
 }
 
 .main{
@@ -68,3 +72,11 @@ h1{
 }
 
 
+/* div anstatt image
+height: 200px;
+    background-image: url(http://www1.pictures.fp.zimbio.com/Chef+JAMIE+OLIVER+Launching+New+Show+Hamburg+JtHhtKLBuXkc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    */

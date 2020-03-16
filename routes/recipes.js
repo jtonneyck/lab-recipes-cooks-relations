@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 app.get("/create", (req, res) => {
   Cook.find()
     .then(cooks => {
-      res.render("recipes/create", {cooksHbs: cooks});
+      res.render("recipes/create", { cooksHbs: cooks });
     })
     .catch(err => {
       res.send("error", err);
@@ -47,20 +47,35 @@ app.post("/create", (req, res) => {
 });
 
 //UPDATE
-app.get("/:id/update", (req, res) => {
-  Cook
-    .find()
-    .then((cooks)=> {
-      res.render("recipes/update.hbs", {cooksHbs: cooks});
-  })
-    .catch(err => {
-      res.render("error", err);
-    });
+// app.get("/:id/update", (req, res) => {
+//   Recipe
+//   .findById(req.params.id)
+//   .then(recipe => {
+//     res.render("recipes/update.hbs", {oneRecipe: recipe});
+//   })
+//   .catch(err => {
+//     res.render("error", err);
+//   });
 
-  Recipe
-    .findById(req.params.id)
-    .then(recipe => {
-      res.render("recipes/update.hbs", {oneRecipe: recipe});
+//   Cook
+//     .find()
+//     .then((cooks)=> {
+//       res.render("recipes/update.hbs", {cooksHbs: cooks});
+//   })
+//     .catch(err => {
+//       res.render("error", err);
+//     });
+// });
+
+app.get("/:id/update", (req, res) => {
+  const cooksPromise = Cook.find();
+  const recipePromise = Recipe.findById(req.params.id);
+
+  Promise.all([cooksPromise, recipePromise])
+    .then(cooksAndRecipeArray => {
+      const cooks = cooksAndRecipeArray[0]
+      const recipe = cooksAndRecipeArray[1]
+      res.render("recipes/update.hbs", {cooksHbs: cooks, oneRecipe: recipe });
     })
     .catch(err => {
       res.render("error", err);
