@@ -1,0 +1,16 @@
+/* .update label{
+    margin: 0px 0px 0px 30px;
+} */
+
+.update input, .update select {
+    margin-bottom: 20px;
+}
+
+.update form {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* .update button {
+    margin: 30px;
+} */
