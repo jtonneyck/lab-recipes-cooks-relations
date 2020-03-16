@@ -13,6 +13,6 @@ const cookSchema = new Schema({
   
   });
 
-const Cook = mongoose.model("recipes",cookSchema)
+const Cook = mongoose.model("cooks",cookSchema)
 
 module.exports = Cook;

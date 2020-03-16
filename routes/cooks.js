@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const Cook = require('../models/cook')
 
+
+
 // List all
 app.get("/", (req,res)=> {
     Cook
     .find()
         .then((cooksData)=> {
-            res.render("cooks/list", {cooks:cooksData});
+            res.render("cook/list", {cooks:cooksData});
         })
         .catch((err)=> {
             res.send(err);
@@ -19,7 +21,7 @@ app.get("/detail/:id", (req,res)=> {
     Cook
     .findById(req.params.id)
         .then((cookData)=> {
-            res.render("cooks/detail", {cook:cookData});
+            res.render("cook/detail", {cook:cookData});
         })
         .catch((err)=> {
             res.send(err);
@@ -79,9 +81,11 @@ app.post("/update/:id", (req,res)=> {
             image:req.body.imageUrl
         })
         .then((cookData)=> {
-            res.redirect(`/cooks/detail/${cookData._id}`);
+            res.redirect(`/cook/detail/${cookData._id}`);
         })
         .catch((err)=> {
             res.send(err);
         })
 })
+
+module.exports = app;

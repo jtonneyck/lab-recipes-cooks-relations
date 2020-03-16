@@ -21,6 +21,7 @@ app.get("/", (req,res)=> {
 app.get("/detail/:id", (req,res)=> {
     Recipe
         .findById(req.params.id)
+        .populate("creator")
         .then((recipeData)=> {
             res.render("recipe/detail", {recipe:recipeData});
         })
@@ -108,7 +109,6 @@ app.post("/update/:id", (req,res)=> {
             res.send(err);
         })
 })
-
 
 
 module.exports = app;
