@@ -1,0 +1,28 @@
+ <form action="/create-recipe" method="POST">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" placeholder="title">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control" type="text" name="description" placeholder="description">
+    </div>
+    <div class="form-group">
+        <label for="image_url">Image url</label>
+        <input class="form-control" type="text" name="image_url" placeholder="image_url">
+    </div>
+    <div class="form-group">
+        <label for="ingredients">ingredients</label>
+        <input class="form-control" type="text" name="ingredients" placeholder="ingredients">
+    </div>
+    <div class="form-group">
+        <label for="cook">cook</label>
+        <select name="cook">
+            {{#each cookHbs}}
+                <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <button type="submit btn btn-primary">Create Recipe</button>
+</form> 
