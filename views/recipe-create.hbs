@@ -1,0 +1,11 @@
+<form action="/create-recipe" method="POST">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="cuisine" placeholder="cuisine">
+    <input type="text" name="duration" placeholder="duration">
+    <select class="form-control" name="cooks" type="text" multiple="{{cooksHbs.length}}">
+        {{#each cooksHbs}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Create Recipe</button>
+</form>
