@@ -20,7 +20,12 @@ mongoose
         console.log(error);
     })
 
-app.use("/cooks", require("./routes/cooks"));
+app.use("/", require("./routes/list"));
+app.use("/detail", require("./routes/detail"))
+app.use("/delete", require("./routes/delete"))
+app.use("/create", require("./routes/create"))
+app.use("/update", require("./routes/update"))
+app.use("/create-recipe", require("./routes/createRecipe"));
 
 app.listen(3000, ()=>{
     console.log("Listening on ", 3000);
