@@ -1,0 +1,20 @@
+<div id="form" class="container">
+
+  <h1>Update the information</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form action="/cooks/{{cooksHbs.id}}/update" method="POST">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" class="form-control" value="{{cooksHbs.name}}" required="required">
+        </div>
+        <div class="form-group">
+          <label>Add an Image</label>
+          <input type="text" name="image" class="form-control" value="{{cooksHbs.image}}">
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg btn-block">Change the information</button>
+      </form>
+    </div>
+  </div>
+</div>
