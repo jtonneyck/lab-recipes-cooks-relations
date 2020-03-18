@@ -1,0 +1,14 @@
+<form action="/create" method="POST">
+    <input type="text" name='title' placeholder="Name">
+    <input type="text" name='image' placeholder="image url">
+    <input type="text" name='level' placeholder="Difficulty">
+    <input type="text" name='cuisine' placeholder="Cuisine">
+    <input type="text" name='duration' placeholder="Duration">
+    <label for="creator">Cooks</label>
+    <select name="creator" id="">
+        {{#each cookHbs}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Create</button>
+</form>

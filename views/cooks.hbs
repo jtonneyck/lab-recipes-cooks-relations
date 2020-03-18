@@ -1,0 +1,10 @@
+{{#each cookHbs}}
+    <h3>{{name}}</h3>
+    <img src="{{image}}" alt="">
+{{/each}}
+
+<form action="/cooks/create" method="POST">
+    <input type="text" name='name' placeholder="name">
+    <input type="text" name='image' placeholder="image url">
+    <button type="submit">Create</button>
+</form>
