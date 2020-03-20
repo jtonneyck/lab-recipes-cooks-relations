@@ -14,7 +14,6 @@ app.get('/cooks', (req,res)=>{
 })
 
 app.post('/cooks/create', upload.single('cook-image'), (req, res)=>{
-    console.log(req.file)
     Cook.create({
         name:req.body.name,
         image:req.body.image,
