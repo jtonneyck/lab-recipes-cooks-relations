@@ -8,6 +8,7 @@ const hbs = require('hbs')
 hbs.registerPartials(__dirname + '/views/partials')
 
 app.set('view engine', 'hbs')
+app.use(express.static('public'))
 
 mongoose.connect("mongodb://localhost/recipe-relations", { 
         useNewUrlParser: true,  
