@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const Cook = require("./models/cook");
+const Recipe = require("./models/recipe");
 
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({
@@ -80,7 +81,6 @@ app.get("/cooks/update/:id", (req, res) => {
         })
 })
 app.post("/cooks/update/:id", (req, res) => {
-
     Cook
         .findByIdAndUpdate(req.params.id, {
             name: req.body.name,
@@ -101,9 +101,56 @@ app.get("/cooks/delete/:id", (req, res) => {
             res.redirect("/cooks");
         })
         .catch((err) => {
-            res.send('error');
+            res.send('error', err);
         })
 })
+//Recepie
+//list
+app.get('/recipes', (req, res) => {
+    Recipe
+        .find({})
+        .populate('creator')
+        .then((recipesData) => {
+            res.render('listRecipe', {
+                recipeHbs: recipesData
+            })
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+})
+
+//Create
+app.get('/recipes/create', (req, res) => {
+    Cook
+        .find()
+        .then(cooks => {
+            res.render("createRecipe", {
+                cookHbs: cooks
+            })
+        })
+        .catch((err) => {
+            res.send('error', );
+        })
+});
+app.post('/recipes/create', (req, res) => {
+    Recipe
+        .create({
+            title: req.body.title,
+            // cuisine: req.body.cuisine,
+            image: req.body.image,
+            // level: req.body.level,
+            // dishType: req.body.dishType,
+            // duration: req.body.duration,
+            creator: req.body.creator
+        })
+        .then(() => {
+            res.redirect('/recipes');
+        })
+        .catch((err) => {
+            res.send('error');
+        })
+});
 
 //listener
 app.listen(3000, () => {

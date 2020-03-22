@@ -8,10 +8,10 @@ const Recipe = mongoose.model("recipes", {
     dishType: String,
     image: String,
     duration: Number,
-    creator: [{
-        type: ObjectId,
-        ref: 'cook'
-    }],
+    creator: {
+        type : mongoose.Types.ObjectId,
+        ref: 'cooks'
+    },
 })
 
 module.exports = Recipe;
