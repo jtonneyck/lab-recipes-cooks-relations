@@ -1,0 +1,23 @@
+<section class="list">
+    {{#each recipes}}
+
+    <div class="col-10 col-md-6 col-lg-4">
+        <article class="list-item">
+            <div>
+                <a href="/recipes/detail/{{this._id}}"><img src={{this.image}} class="img-fluid" alt='image'></a>
+            </div>
+            <div>
+                <h3>{{this.title}}</h3>
+                <a href="/cooks/detail/{{creator._id}}"><h4>{{creator.name}}</h4></a>
+                <h6>{{this.cuisine}}</h6>
+                <a href="/recipes/detail/{{this._id}}">More</a>
+            </div>
+            <div class="delete-link">
+                <a href="/recipes/update/{{this._id}}">Update</a>
+                <a href="/recipes/delete/{{this._id}}">Delete</a>
+            </div>
+        </article>       
+    </div>
+
+    {{/each}}
+</section>

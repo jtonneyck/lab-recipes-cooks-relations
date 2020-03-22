@@ -1,0 +1,16 @@
+/* .create label{
+    margin: 0px 0px 0px 30px;
+} */
+
+.create input, .create select {
+    margin-bottom: 20px;
+}
+
+.create form {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* .create button {
+    margin: 30px;
+} */

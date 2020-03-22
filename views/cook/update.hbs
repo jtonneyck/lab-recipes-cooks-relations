@@ -1,0 +1,18 @@
+
+<section class="update">
+    <form action="/cooks/update/{{cook._id}}" method="post" id="update-cook">
+
+        <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" name="name" value="{{cook.name}}" placeholder="{{cook.name}}" class="form-control" size="90">
+        </div>
+        <div class="form-group">
+            <label for="image">Image URL</label>
+            <input type="text" name="imageUrl" value="{{cook.image}}" placeholder="{{cook.image}}" class="form-control">
+        </div>
+        
+        <button type="submit" formmethod="POST" class="btn btn-primary">Update cook</button>
+    </form>
+
+</section>
+

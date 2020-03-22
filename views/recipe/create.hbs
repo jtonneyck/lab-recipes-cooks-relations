@@ -1,0 +1,54 @@
+<section class="create">
+    <form action="/recipes/create" method="post" id="create-recipe" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="give it a title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="cuisine">Cuisine</label>
+            <input type="text" name="cuisine" placeholder="specify the origins" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="number" name="duration" placeholder="duration (minutes)" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="recipe-img">Image </label>
+            <input type="file" name="recipe-img" />
+            {{!-- <input type="text" name="imageUrl" placeholder="Image URL" size="90" class="form-control"> --}}
+        </div>
+        <div class="form-group">
+            <label for="level">Choose a Level</label>
+            <select name="level" id="level" form="create-recipe" class="form-control">
+                <option value="Easy Peasy">Easy Peasy</option>
+                <option value="Amateur Chef">Amateur Chef</option>
+                <option value="UltraPro Chef">UltraPro Chef</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dishType">Dish Type</label>
+            <select name="dishType" id="dishType" form="create-recipe" class="form-control">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Dish">Dish</option>
+                <option value="Snack">Snack</option>
+                <option value="Drink">Drink</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="creator">Cook</label>
+            <select name="creator" id="creator" form="create-recipe" class="form-control">
+                {{#each cooks}}
+                    <option value="{{this._id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <button type="submit" formmethod="POST" class="btn btn-primary">Create Recipe</button>
+    </form>
+</section>
+
+
+
+
