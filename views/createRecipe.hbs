@@ -1,0 +1,12 @@
+<form action="/recipes/create" method="POST">
+    <label for="title">title:</label>
+    <input type="text" name="title">
+    <select class="form-control" name="creator">
+        {{#each cookHbs}}
+    <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+    </select>
+    <label for="image">image:</label>
+    <input type="text" name="image" value="">
+    <button type="submit">Add Recipe</button>
+</form>
