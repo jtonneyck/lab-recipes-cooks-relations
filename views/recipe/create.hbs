@@ -1,5 +1,5 @@
 <section class="create">
-    <form action="/recipes/create" method="post" id="create-recipe">
+    <form action="/recipes/create" method="post" id="create-recipe" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" placeholder="give it a title" class="form-control">
@@ -13,8 +13,9 @@
             <input type="number" name="duration" placeholder="duration (minutes)" class="form-control">
         </div>
         <div class="form-group">
-            <label for="image">Image URL</label>
-            <input type="text" name="imageUrl" placeholder="Image URL" size="90" class="form-control">
+            <label for="recipe-img">Image </label>
+            <input type="file" name="recipe-img" />
+            {{!-- <input type="text" name="imageUrl" placeholder="Image URL" size="90" class="form-control"> --}}
         </div>
         <div class="form-group">
             <label for="level">Choose a Level</label>

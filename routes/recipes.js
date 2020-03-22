@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const Recipe = require("../models/recipe");
 const Cook = require('../models/cook')
+var multer  = require('multer')
+var upload = multer({ dest: 'public/' })
 
 
 // List All
@@ -17,6 +19,7 @@ app.get("/", (req,res)=> {
         })
 })
 
+
 // Show one
 app.get("/detail/:id", (req,res)=> {
     Recipe
@@ -30,18 +33,20 @@ app.get("/detail/:id", (req,res)=> {
         })
 })
 
+
 // Delete
 app.get("/delete/:id", (req,res)=> {
     Recipe
         .findByIdAndDelete(req.params.id)
         .then((recipe)=> {
-            console.log("deleted: ",recipe)
+            //console.log("deleted: ",recipe)
             res.redirect("/recipes");   
         })
         .catch((err)=> {
             res.send(err);
         })
 })
+
 
 // Create one
 app.get("/add-recipe", (req,res)=>{
@@ -56,8 +61,8 @@ app.get("/add-recipe", (req,res)=>{
     
 })
 
-app.post("/create", (req,res)=> {
-    console.log(req.body);
+app.post("/create", upload.single('recipe-img'), (req,res)=> {
+    //console.log(req.file);
     Recipe
         .create({
             title:req.body.title,
@@ -65,12 +70,12 @@ app.post("/create", (req,res)=> {
             ingredients:[],
             cuisine:req.body.cuisine,
             dishType:req.body.dishType,
-            image:req.body.imageUrl,
+            image:req.file.filename,
             duration:req.body.duration,
             creator:req.body.creator
         })
         .then((recipeData)=> {
-            console.log("added: ",recipeData)
+            //console.log("added: ",recipeData)
             res.redirect(`/recipes/detail/${recipeData._id}`);
         })
         .catch((err)=> {
@@ -78,19 +83,25 @@ app.post("/create", (req,res)=> {
         })
 })
 
+
 // Uopdate
 app.get("/update/:id", (req,res)=> {
     Recipe
         .findById(req.params.id)
+        .populate("creator")
         .then((recipeData)=> {
-            res.render("recipe/update", {recipe:recipeData});
+            console.log(recipeData)
+            Cook.find().then(cooksData=>{
+                res.render(`recipe/update`, {recipe:recipeData,cooks:cooksData});
+            })
+            
         })
         .catch((err)=> {
             res.send(err);
         })
 })
 
-app.post("/update/:id", (req,res)=> {
+app.post("/update/:id", upload.single('recipe-img'), (req,res)=> {
     Recipe
         .findByIdAndUpdate(req.params.id,{
             title:req.body.title,
@@ -98,7 +109,7 @@ app.post("/update/:id", (req,res)=> {
             ingredients:[],
             cuisine:req.body.cuisine,
             dishType:req.body.dishType,
-            image:req.body.imageUrl,
+            image:req.file.filename,
             duration:req.body.duration,
             creator:req.body.creator
         })
