@@ -1,0 +1,45 @@
+body {
+    background-color: chocolate;
+}
+
+.nav {
+    background-color: black;
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+.nav-link {
+    color: white;
+}
+
+#cook {
+   max-height: 200px; 
+}
+
+.img-thumbnail {
+    max-width: 500px;
+    margin-top: 10px;
+}
+
+.media {
+    display: block;
+
+    margin: 20px;
+    max-width: max-content;
+}
+
+.row {
+    margin: 30px 50px;
+}
+
+h3, h5 {
+    color: white;
+}
+
+#inlineFormCustomSelect{
+    max-width: max-content;
+}
+
+.form-group {
+    max-width: max-content;
+}
