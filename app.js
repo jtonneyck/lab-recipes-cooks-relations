@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}))
 
 hbs.registerPartials(__dirname + '/views/partials');
-
+app.use(express.static("public")) 
 app.set("view engine", "hbs");
 
 mongoose

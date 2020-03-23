@@ -1,12 +1,12 @@
-<div class="media col-6">
-    <img src="{{cooks.image}}" class="mr-3" alt="recipe">
+<div>
+    <img src="{{cooks.image}}" class="img-thumbnail" alt="recipe">
     <div class="media-body">
-        <h5 class="mt-0">{{cooks.name}}</h5>
+        <h4 class="mt-0">{{cooks.name}}</h4>
     </div>
     <a href="/update/{{cooks._id}}">
-        <button>Edit</button>
+        <button type="button" class="btn btn-secondary">Edit</button>
     </a>
     <a href="/delete/{{cooks._id}}">
-        <button>Delete Cook</button>
+        <button type="button" class="btn btn-dark">Delete Cook</button>
     </a>
 </div>
