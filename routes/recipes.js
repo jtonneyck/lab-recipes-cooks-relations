@@ -1,47 +1,23 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const Recipe = require("../models/Recipe");
-const Cook = require("../models/Cook");
+const Recipe = require('../models/recipe.js');
+// const Cook = require('../models/cook');
 
-app.get("/", (req, res) => {
-  Recipe
-    .find()
-    .populate("cook") // this is new
-    .then((recipes) => {
-      res.render("recipes/recipe.hbs", {
-        recipesHbs: recipes
-      });
+
+app.get('/', (req, res) => {
+  res.render('index.hbs');
+});
+
+app.get('/recipes', (req, res, next) => {
+  Recipe.find()
+    .then(allRecipesFromDB => {
+      res.render('recipes.Hbs', { recipesHbs: allRecipesFromDB });
     })
-    .catch((err) => {
-      console.log(err);
-    })
-})
+    .catch(err => {
+      next('database error');
+    });
+});
 
-// app.get("/create", (req, res) => {
-//   Author
-//     .find()
-//     .then((authors) => {
-//       res.render("book/create", {
-//         authorsHbs: authors
-//       });
-//     })
-//     .catch((err) => {
-//       res.send("error")
-//     })
-// })
+// git stash *
 
-// app.post("/create", (req, res) => {
-//   Book
-//     .create({
-//       title: req.body.title,
-//       description: req.body.description,
-//       rating: req.body.rating,
-//       image_url: req.body.image_url,
-//       author: req.body.author
-//     })
-//     .then((book) => {
-//       res.send("ok")
-//     })
-// })
-
-// module.exports = app;
+module.exports = app;

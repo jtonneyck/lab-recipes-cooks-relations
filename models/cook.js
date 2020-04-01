@@ -1,11 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const CookModel = mongoose.model("cooks", {
-  image_url: String,
-  firstName: String,
-  lastName: String,
-  nationality: String,
-  birthday: Date
+const CookModel = mongoose.model('cooks', {
+  name: String,
+  image: String,
 });
 
 module.exports = CookModel;

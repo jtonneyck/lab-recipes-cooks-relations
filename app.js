@@ -1,31 +1,37 @@
-const mongoose = require("mongoose");
-//const Recipe = require("./models/Recipe");
-//const Cook = require("./models/Cook")
-const express = require("express");
+//general info
+const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
 
 const hbs = require('hbs');
-//hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerPartials(__dirname + '/views/partials');
 
-app.set("view engine", "hbs");
-mongoose.connect("mongodb://localhost/recipes", {
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+
+mongoose
+  .connect('mongodb://localhost/recipe-app-dev', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
-  .then((connection) => {
-    console.log("connected to mongodb")
+  .then(connectionInfo => {
+    console.log('connected to recipes database');
   })
-  .catch((err) => {
-    console.log("not connected to mongodb:", err);
-  })
+  .catch(error => {
+    console.log('error', error);
+  });
+
+app.set('PORT', 3013);
+app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
-app.use("/recipes", require("./routes/recipes"));
+app.use('/', require('./routes/recipes'));
+//app.set('views', path.join(__dirname, 'views'));
 
-app.listen(3005, () => {
-  console.log("Express is listening on", 3005);
-})
+app.listen(app.get('PORT'), () => {
+  console.log('🏃‍ on port 3013', app.get('PORT'));
+});
