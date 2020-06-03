@@ -23,3 +23,18 @@ Part of creating a recipe should be assigning it to a cook. You do this by setti
     </select>
 
 ```
+
+## Bonus - Recipe Reviews!
+
+Of course the cooks really like the recipes, but do other people too? Make a separate Review model that has a relation with 1 recipe. A recipe can have multiple reviews. You can specify that in the Recipe model like this:
+```
+    mongoose.model("Recipe", {
+        title: String,
+        creator: ...
+        reviews: [{type: mongoose.Schema.ObjectId, ref: "Review"}],
+        ...
+    })
+```
+The square brackets indicate that it can have multiple reviews.
+
+You can go all out with the Review model, but it should have at least a title and a body text. Put the form that is going to create the Review on the detail page of the recipe. Part of creating the review is adding the object id to the reviews array in the recipe. Take a look at the $push operator. ;)
