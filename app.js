@@ -15,6 +15,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 const recipesRoute = require("./routes/recipes/list");
 const detailsRecipeRoute = require("./routes/recipes/detailsRecipe");
+const createRecipeRoute = require("./routes/recipes/createRecipe");
 const listChefsRoute = require("./routes/cooks/listCooks");
 const createChefsRoute = require("./routes/cooks/createCook");
 const deleteChefsRoute = require("./routes/cooks/deleteCook");
@@ -48,10 +49,7 @@ app.use("/", listChefsRoute);
 app.use("/", createChefsRoute);
 app.use("/", deleteChefsRoute);
 app.use("/", updateChefsRoute);
-
-
-
-
+app.use("/", createRecipeRoute);
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening");
