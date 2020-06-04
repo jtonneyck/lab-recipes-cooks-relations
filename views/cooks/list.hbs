@@ -1,0 +1,8 @@
+<div class="row">
+    {{#each cooks}}
+        <div class="col-2">
+            <img class="img-fluid" src="{{image}}" alt="">
+            <a href="/cooks/detail/{{_id}}"><p>{{name}}</p></a>
+        </div>
+    {{/each}}
+</div>
