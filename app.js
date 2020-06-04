@@ -22,6 +22,8 @@ const listChefsRoute = require("./routes/cooks/listCooks");
 const createChefsRoute = require("./routes/cooks/createCook");
 const deleteChefsRoute = require("./routes/cooks/deleteCook");
 const updateChefsRoute = require("./routes/cooks/updateCook");
+const createReviewRoute = require("./routes/reviews/createReview");
+
 
 
 
@@ -55,9 +57,7 @@ app.use("/", updateChefsRoute);
 app.use("/", createRecipeRoute);
 app.use("/", updateRecipeRoute);
 app.use("/", deleteRecipeRoute);
-
-
-
+app.use("/", createReviewRoute);
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening");

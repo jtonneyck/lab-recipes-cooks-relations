@@ -12,6 +12,21 @@
             <h6><a href="/recipe/deleteRecipe?id={{recipe._id}}">Delete this recipe</a></h6>
             <h6><a href="/recipe/updateRecipe?id={{recipe._id}}">Update this recipe</a></h6>
         </div>
+        <div class="col-4">
+            {{>reviews}}
+        </div>
+        <div class="col-4">
+            <h5 class="p-2">Reviews</h5>
+            {{#each recipe.reviews}}
+            <div class="review-item">
+            <p class="title-review">{{this.title}} </p>
+            <p class="comment">{{this.comments}}</p>
+            <p>Reviewer: {{this.reviewer}} <span class="score">Score: {{this.score}}</span></p>
+            </div>
+            {{/each}}
+        </div>
+
     </div>
 </div>
+
 

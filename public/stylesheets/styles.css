@@ -48,7 +48,28 @@ a {
     text-align: center;
 }
 
-input[type=text], select, input[type=number], input[type=date], input[type=search] {
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    font-style: italic;
+}
+
+.title-review {
+    font-weight: 600;
+}
+
+.review-item {
+    margin: 10px 5px;
+}
+
+.score {
+    float: right;
+}
+
+input[type=text], select, input[type=number], input[type=date], input[type=search] textarea[type=text] {
     width: 100%;
     padding: 5px;
     margin: 5px 0;

@@ -10,6 +10,7 @@ const recipeSchema = new Schema({
   image: { type: String, default: 'https://images.media-allrecipes.com/images/75131.jpg' },
   duration: { type: Number, min: 0},
   creator: {type: mongoose.Schema.ObjectId, ref: "Cook"},
+  reviews: [{type: mongoose.Schema.ObjectId, ref: "Review"}],
 });
 recipeSchema.index({'$**': 'text'});
 
