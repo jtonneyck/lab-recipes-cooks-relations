@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/stylesheets/recipeDetails.css">
+
+<div class="recipeDetails">
+    <section class="details">
+        <h1>{{recipes.title}}</h1>
+        <img src="{{recipes.image}}" alt="">
+        <h3>Ingredients:</h3>
+        <ul>
+            {{#each recipes.ingredients}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        <p>Cuisine: {{recipes.cuisine}}</p>
+        <p>Level of difficulty: {{recipes.level}}</p>
+        <p>Duration: {{recipes.duration}}</p>
+        <p>Dish type: {{recipes.dishType}}</p>
+        <p>Creator: {{recipes.creator.name}}</p>
+        <img src="{{recipes.creator.image}}" alt="">
+        <p>Created at:{{recipes.created}}</p>
+    </section>
+</div>

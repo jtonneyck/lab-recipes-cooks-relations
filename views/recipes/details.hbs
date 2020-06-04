@@ -1,18 +1,51 @@
-    <h1>{{recipes.title}}</h1>
-    <img src="{{recipes.image}}" alt="">
-    <h2>Ingredients:<h2>
-    <ul>
-        {{#each recipes.ingredients}}
-            <li>{{this}}</li>
-        {{/each}}
-    </ul>
-    <h3>Cuisine: {{recipes.cuisine}}</h3>
-    <h3>Level of difficulty: {{recipes.level}}</h3>
-    <h3>Duration: {{recipes.duration}}</h3>
-    <h3>Dish type: {{recipes.dishType}}</h3>
-    <h3>Creator: {{recipes.creator.name}}</h3>
-    <img src="{{recipes.creator.image}}" alt="">
-    <h3>Created at:{{recipes.created}}</h3>
+<link rel="stylesheet" href="/stylesheets/recipeDetails.css">
 
-<a href="/recipes/delete/?id={{recipes._id}}"><button>Delete recipe</button></a>
-<a href="/recipes/details/edit/?id={{recipes._id}}" class="edit-button"><button>Edit recipe</button></a>
+<div class="recipeDetails">
+    <section class="details">
+        <h1>{{recipes.title}}</h1>
+        <img src="{{recipes.image}}" alt="">
+        <h3>Ingredients:</h3>
+        <ul>
+            {{#each recipes.ingredients}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        <p>Cuisine: {{recipes.cuisine}}</p>
+        <p>Level of difficulty: {{recipes.level}}</p>
+        <p>Duration: {{recipes.duration}}</p>
+        <p>Dish type: {{recipes.dishType}}</p>
+        <p>Creator: {{recipes.creator.name}}</p>
+        <img src="{{recipes.creator.image}}" alt="">
+        <p>Created at:{{recipes.created}}</p>
+
+        <a href="/recipes/delete/?id={{recipes._id}}"><button>Delete recipe</button></a>
+        <a href="/recipes/details/edit/?id={{recipes._id}}" class="edit-button"><button>Edit recipe</button></a>
+    </section>
+    
+    <section class="review-form">
+        <h2>Review this Recipe!</h2>
+        <form action="/recipes/details/" method="POST">
+            <label for="title">Title:</label>
+            <input id="title" type="text" name="title" placeholder="Very tasteful.." value="">
+            <label for="comment">Comment:</label>
+            <input id="comment" type="text" name="comment" placeholder="Good ingredienst.." value="">
+            <label for="creator">Creator:</label>
+            <input id="creator" type="text" name="creator" placeholder="Your name/nickname.." value="">
+            <input type="text" hidden value="{{recipes.id}}" name="id">
+
+            <a><button type="submit">Upload review</button></a>
+        </form>
+    </section>
+
+    <section class="details">
+        <h2>Reviews</h2>
+        {{#each recipes.reviews}}
+            <h3>{{recipes.reviews.title}}</h3>
+            <p>{{recipes.reviews.comment}}</p>
+            <p>{{recipes.reviews.creator}}</p>
+            <p>{{recipes.reviews.created}}</p>
+        {{/each}}
+    </section>
+
+</div>    
+

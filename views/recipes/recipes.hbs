@@ -1,8 +1,18 @@
-{{#each recipes}}
-    <h1>{{title}}</h1>
-    <h2>{{creator.name}}</h2>
-    <img src="{{creator.image}}" alt="">
-    <h3>{{cuisine}}</h3>
-    <img src="{{image}}" alt="">
-    <a href="/recipes/details?id={{_id}}">Recipe details</a>
-{{/each}}
+<link rel="stylesheet" href="/stylesheets/recipes.css">
+<h1>All recipes</h1>
+<article class="recipes">
+    {{#each recipes}}
+        <h2>{{title}}</h2>
+        <div class="split-container">
+            <div class="left-container">
+                <img src="{{image}}" alt="">
+            </div>
+            <div class="right-container">
+                <h3>{{creator.name}}</h3>
+                <img src="{{creator.image}}" alt="">
+                <p>Cuisine: {{cuisine}}</p>
+            </div>
+        </div>
+        <a href="/recipes/details?id={{_id}}"><button>Recipe details</button></a>
+    {{/each}}
+</article>

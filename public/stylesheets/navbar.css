@@ -12,12 +12,20 @@ nav {
 
 nav a{
     margin: 10px;
-    color: white;
     font-weight: bold;
     text-emphasis: none;
     text-decoration: none;
 }
 
-nav a:hover{
-    text-emphasis: ;
+nav .left-menu a{
+    color: white;
 }
+
+nav .right-menu a{
+    color: lightyellow;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+

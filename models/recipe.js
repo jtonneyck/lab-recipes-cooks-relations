@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const Cook = require("./cook")
 const Schema = mongoose.Schema;
+
+const Cook = require("./cook")
+const Review = require("./review")
 
 const recipesSchema = new Schema({
     title: { type: String, required: true },
@@ -13,9 +15,10 @@ const recipesSchema = new Schema({
     duration: { type: Number, min: 0 },
     created: { type: Date, default: Date.now },
     creator: { type: Schema.ObjectId, ref: 'Cook' },
+    reviews: [{ type: Schema.ObjectId, ref: "Review" }],
 })
 
-const Recipe = mongoose.model('Recipe', recipesSchema);
+const Recipe = mongoose.model('Recipe', recipesSchema, 'recipes');
 
 module.exports = Recipe;
 
