@@ -26,6 +26,8 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 app.set("partials", path.join(__dirname, "/views/partials"));
 
+app.use(express.static("public"))
+
 app.use("/", require("./routes/recipes/list"));
 app.use("/", require("./routes/recipes/recipe-details"));
 app.use("/", require("./routes/recipes/delete"));
