@@ -10,14 +10,20 @@ app.get("/reviews/deleteReview", (req, res) => {
     let recipeId = req.query.recipeId
     Review.findByIdAndDelete(reviewToDelete)
     .then((deletedReview) => {
-        Recipe.findById(recipeId)
-        .then((recipe) => {
-          res.redirect(`/recipe/details?id=${recipe._id}`)
-        })
+      Recipe.findByIdAndUpdate(
+          recipeId, { $pull: { reviews: reviewToDelete }}
+      )
+      .then((recipe) => {
+          res.redirect(`/recipe/details?id=${recipeId}`)
       })
+      .catch((err) => {
+        console.log("Err",err)
+      })
+  })  
       .catch((err) => {
         console.log("Err",err)
       })
 })
 
 module.exports = app;
+

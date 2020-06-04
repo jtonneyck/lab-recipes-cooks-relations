@@ -9,8 +9,8 @@
             <h6>Cooking time: {{recipe.duration}} minutes</h6>
             <h6>Chef: {{recipe.creator.name}}</h6>
             <img src="{{recipe.creator.image}}" alt="{{recipe.creator.name}} img">
-            <h6><a href="/recipe/deleteRecipe?id={{recipe._id}}">Delete this recipe</a></h6>
-            <h6><a href="/recipe/updateRecipe?id={{recipe._id}}">Update this recipe</a></h6>
+            <p><a href="/recipe/deleteRecipe?id={{recipe._id}}" class="links">Delete this recipe</a></p>
+            <p><a href="/recipe/updateRecipe?id={{recipe._id}}" class="links">Update this recipe</a></p>
         </div>
         <div class="col-4">
             {{>reviews}}
@@ -22,7 +22,7 @@
             <p class="title-review">{{this.title}} </p>
             <p class="comment">{{this.comments}}</p>
             <p>Reviewer: {{this.reviewer}} <span class="score">Score: {{this.score}}</span></p>
-            <p><a href="/reviews/deleteReview?id={{this._id}}&recipeId={{recipe._id}}">Delete review</a></p>
+            <p><a href="/reviews/deleteReview?id={{this._id}}&recipeId={{../recipe._id}}">Delete review</a></p>
             </div>
             {{/each}}
         </div>

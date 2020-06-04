@@ -3,8 +3,19 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const app = express();
+app.use(cookieParser());
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+
 
 app.set('view engine', 'hbs');
 
@@ -24,6 +35,8 @@ const deleteChefsRoute = require("./routes/cooks/deleteCook");
 const updateChefsRoute = require("./routes/cooks/updateCook");
 const createReviewRoute = require("./routes/reviews/createReview");
 const deleteReviewRoute = require("./routes/reviews/deleteReview");
+
+
 
 
 
