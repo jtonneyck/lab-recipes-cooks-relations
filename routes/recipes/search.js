@@ -2,14 +2,12 @@ const express = require("express");
 const app = express();
 const Recipe = require("../../models/recipe");
 
-app.get("/recipes/search/cuisine", (req, res)=>{
-    res.render("recipes/search/cuisine")
+app.get("/recipes/search", (req, res)=>{
+    res.render("recipes/search")
 })
 
-app.post("/recipes/search/cuisine/result", (req, res)=>{
-    Recipe.find({
-        cuisine : {$in: req.body.cuisine}
-    })
+app.post("/recipes/search/result", (req, res)=>{
+    Recipe.find({ $text: { $search: req.body.search} })
     .then((recipe)=>{
         res.render("recipes/list", {recipes: recipe})
     })

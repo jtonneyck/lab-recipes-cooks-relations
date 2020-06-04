@@ -34,6 +34,7 @@ mongoose
         console.log(err)
     })
 
+
 app.use("/", require("./routes/home"));
 app.use("/", require("./routes/recipes/recipes"));
 app.use("/", require("./routes/recipes/detail"));
@@ -42,9 +43,7 @@ app.use("/", require("./routes/recipes/create"));
 app.use("/", require("./routes/recipes/update"));
 app.use("/", require("./routes/recipes/level"));
 app.use("/", require("./routes/recipes/dish"));
-app.use("/", require("./routes/search/home"));
-app.use("/", require("./routes/search/title"));
-app.use("/", require("./routes/search/cuisine"));
+app.use("/", require("./routes/recipes/search"));
 app.use("/", require("./routes/cooks/cooks"));
 app.use("/", require("./routes/cooks/detail"));
 app.use("/", require("./routes/cooks/create"));

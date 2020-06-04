@@ -12,6 +12,10 @@ const recipeSchema = new mongoose.Schema ({
     reviews: [{type: mongoose.Schema.ObjectId, ref: "review"}],
 })
 
-const Recipe = mongoose.model("recipes", recipeSchema)
+
+recipeSchema.index( { "$**": "text" } );
+
+
+const Recipe = mongoose.model("recipes", recipeSchema);
 
 module.exports = Recipe;
