@@ -5,7 +5,6 @@ const Cook = require("../../models/Cook");
 const Review = require("../../models/Review");
 
 
-
 app.get('/', (req, res) => {
     Recipe
     .find({})

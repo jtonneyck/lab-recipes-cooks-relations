@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const Recipe = require("../../models/Recipe");
-const Cook = require("../../models/Cook");
 
 app.get("/recipe/details", (req, res) => {
     let objectId = req.query.id
