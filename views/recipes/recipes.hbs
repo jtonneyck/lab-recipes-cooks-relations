@@ -1,0 +1,8 @@
+{{#each recipes}}
+    <h1>{{title}}</h1>
+    <h2>{{creator.name}}</h2>
+    <img src="{{creator.image}}" alt="">
+    <h3>{{cuisine}}</h3>
+    <img src="{{image}}" alt="">
+    <a href="/recipes/details?id={{_id}}">Recipe details</a>
+{{/each}}

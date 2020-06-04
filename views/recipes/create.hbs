@@ -1,0 +1,24 @@
+<form action="/recipes/create" method="POST">
+    <label for="title-input">Title:</label>
+    <input id="title-input" type="text" name="title" value="test">
+    <label for="level-input">Level:</label>
+    <input id="level-input" type="text" name="level" value="Easy Peasy">
+    <label for="ingredients-input">Ingredients:</label>
+    <input id="ingredients-input" type="text" name="ingredients" value="test">
+    <label for="cuisine-input">Cuisine:</label>
+    <input id="cuisine-input" type="text" name="cuisine" value="test">
+    <label for="dish-input">Dish Type:</label>
+    <input id="dish-input" type="text" name="dishType" value="breakfast">
+    <label for="image-input">Image url:</label>
+    <input id="image-input" type="text" name="image" value="test">
+    <label for="duration-input">Duration:</label>
+    <input id="duration-input" type="text" name="duration" default="10" value="10">
+    <label for="creator-input">Creator:</label>
+    <select class="creator-input" name="creator" type="text" multiple="{{cooks.length}}">
+        {{#each cooks}}
+            <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit" value="Save Name">
+</form>

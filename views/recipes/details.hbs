@@ -1,0 +1,18 @@
+    <h1>{{recipes.title}}</h1>
+    <img src="{{recipes.image}}" alt="">
+    <h2>Ingredients:<h2>
+    <ul>
+        {{#each recipes.ingredients}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h3>Cuisine: {{recipes.cuisine}}</h3>
+    <h3>Level of difficulty: {{recipes.level}}</h3>
+    <h3>Duration: {{recipes.duration}}</h3>
+    <h3>Dish type: {{recipes.dishType}}</h3>
+    <h3>Creator: {{recipes.creator.name}}</h3>
+    <img src="{{recipes.creator.image}}" alt="">
+    <h3>Created at:{{recipes.created}}</h3>
+
+<a href="/recipes/delete/?id={{recipes._id}}"><button>Delete recipe</button></a>
+<a href="/recipes/details/edit/?id={{recipes._id}}" class="edit-button"><button>Edit recipe</button></a>
