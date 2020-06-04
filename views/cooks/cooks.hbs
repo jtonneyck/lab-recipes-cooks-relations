@@ -1,0 +1,7 @@
+<h1>These are all the Cooks</h1>
+{{#each cooks}}
+    <h2>Name: {{name}}</h2>
+    <img src="{{image}}" alt="Picture of {{name}}">
+    <a href="/cooks/edit/?id={{_id}}"><button>Edit Cook</button></a>
+    <a href="/cooks/delete/?id={{_id}}"><button>Delete Cook</button></a>
+{{/each}}
