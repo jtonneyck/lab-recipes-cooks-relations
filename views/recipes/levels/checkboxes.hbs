@@ -1,9 +1,19 @@
-<form action="level/result" method="POST">
-    <label for="">Easy Peasy</label>
-    <input type="checkbox" name="level" value="Easy Peasy"><br>
-    <label for="">Amateur Chef</label>
-    <input type="checkbox" name="level" value="Amateur Chef"><br>
-    <label for="">UltraPro Chef</label>
-    <input type="checkbox" name="level" value="UltraPro Chef"><br>
-    <button>Find</button>
-</form>
+<div class="m-3">
+    <h3 class="mb-3">Search recipes by difficulty</h3>
+    <p class="mb-2"><strong>Please select the level you can handle:</strong></p>
+    <form action="level/result" method="POST">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="easy" class="custom-control-input" name="level" value="Easy Peasy">
+            <label class="custom-control-label" for="easy">Easy Peasy</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="medium" class="custom-control-input" name="level" value="Amateur Chef">
+            <label class="custom-control-label" for="medium">Amateur Chef</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="hard" class="custom-control-input" name="level" value="UltraPro Chef">
+            <label class="custom-control-label" for="hard">UltraPro Chef</label>
+        </div>
+        <button class="btn mt-2">Find</button>
+    </form>
+</div>

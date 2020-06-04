@@ -9,7 +9,7 @@ app.get("/recipes/delete/:id", (req, res)=>{
         res.redirect("/recipes")
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

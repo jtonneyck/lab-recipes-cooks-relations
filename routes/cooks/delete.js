@@ -9,7 +9,7 @@ app.get("/cooks/delete/:id", (req, res)=>{
         res.redirect("/cooks")
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

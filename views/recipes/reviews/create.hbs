@@ -1,9 +1,0 @@
-<form id="form-create" action="/recipes/reviews/create/{{recipe._id}}" method="POST">
-    <input type="text" placeholder="title" name="title"><br>
-    <label for="">Score</label>
-    <input type="range" min="0" max="10" name="score"><br>
-    <input type="text" hidden name="id" value="{{recipe._id}}">
-    <textarea placeholder="comment" maxlength="500" name="comment"></textarea><br>
-    <p>Max: 500</p><br>
-    <button type="submit">Post Review</button>
-</form>

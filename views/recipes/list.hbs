@@ -1,9 +1,13 @@
-<div class="row">
+<div class="row recipe-list">
     {{#each recipes}}
         <div class="col-4">
-            <img class="img-fluid" src="{{image}}" alt="">
-            <a href="/recipes/detail/{{_id}}"><p>{{title}}</p></a>
-            <p>Cuisine: {{cuisine}}</p>
+            <a href="/recipes/detail/{{_id}}">
+                <img class="img-fluid img-recipe-list" src="{{image}}" alt="">
+            </a>
+            <div class="d-flex flex-column align-items-center p-2 mb-4 bg-custom-recipe">
+                <a class="title-recipe-list" href="/recipes/detail/{{_id}}"><p class="title-recipe-list"><strong>{{title}}</strong></p></a>
+                <p class="cuisine-recipe-list"><strong>Cuisine: </strong>{{cuisine}}</p>
+            </div>
         </div>
     {{/each}}
 </div>

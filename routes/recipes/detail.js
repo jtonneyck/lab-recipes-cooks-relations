@@ -11,7 +11,7 @@ app.get("/recipes/detail/:id", (req, res)=>{
             res.render("recipes/detail", {recipe: recipe})
         })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

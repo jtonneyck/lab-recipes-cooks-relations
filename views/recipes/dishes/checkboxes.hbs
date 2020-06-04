@@ -1,17 +1,35 @@
-<form action="dish/result" method="POST">
-    <label for="">Breakfast</label>
-    <input type="checkbox" name="dishType" value="breakfast"><br>
-    <label for="">Main Course</label>
-    <input type="checkbox" name="dishType" value="main_course"><br>
-    <label for="">Soup</label>
-    <input type="checkbox" name="dishType" value="soup"><br>
-    <label for="">Snack</label>
-    <input type="checkbox" name="dishType" value="snack"><br>
-    <label for="">Drink</label>
-    <input type="checkbox" name="dishType" value="drink"><br>
-    <label for="">Dessert</label>
-    <input type="checkbox" name="dishType" value="dessert"><br>
-    <label for="">Other</label>
-    <input type="checkbox" name="dishType" value="other"><br>
-    <button>Find</button>
-</form>
+<div class="m-3">
+    <h3 class="mb-3">Search recipes by dish type</h3>
+    <p class="mb-2"><strong>Please select the dishes you are interested in:</strong></p>
+    <form action="dish/result" method="POST">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="breakfast" class="custom-control-input" name="dishType" value="breakfast">
+            <label class="custom-control-label" for="breakfast">Breakfast</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="main_course" class="custom-control-input" name="dishType" value="main_course">
+            <label class="custom-control-label" for="main_course">Main Course</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="soup" class="custom-control-input" name="dishType" value="soup">
+            <label class="custom-control-label" for="soup">Soup</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="snack" class="custom-control-input" name="dishType" value="snack">
+            <label class="custom-control-label" for="snack">Snack</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="drink" class="custom-control-input" name="dishType" value="drink">
+            <label class="custom-control-label" for="drink">Drink</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="dessert" class="custom-control-input" name="dishType" value="dessert">
+            <label class="custom-control-label" for="dessert">Dessert</label>
+        </div>    
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" id="other" class="custom-control-input" name="dishType" value="other">
+            <label class="custom-control-label" for="other">Other</label>
+        </div>
+        <button class="btn mt-2">Find</button>
+    </form>
+</div>

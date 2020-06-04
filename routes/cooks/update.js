@@ -9,7 +9,7 @@ app.get("/cooks/update/:id", (req, res) =>{
         res.render("cooks/update", {cook: cook})
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 
@@ -23,7 +23,7 @@ app.post("/cooks/update", (req, res)=>{
         res.redirect(`detail/${cook._id}`)
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

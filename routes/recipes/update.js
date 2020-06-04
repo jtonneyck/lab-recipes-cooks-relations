@@ -47,7 +47,7 @@ app.get("/recipes/update/:id", (req, res) =>{
         res.render("recipes/update", {recipe: recipe})
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 
@@ -66,7 +66,7 @@ app.post("/recipes/update", (req, res)=>{
         res.redirect(`detail/${recipe._id}`)
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

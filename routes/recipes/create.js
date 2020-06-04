@@ -28,7 +28,6 @@ app.post("/recipes/create", (req, res)=>{
         res.redirect(`/recipes/detail/${recipe._id}`)
     })
     .catch((err)=> {
-        // res.render(err);
         console.log(err)
     })
 })

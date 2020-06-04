@@ -1,45 +1,69 @@
-<form id="form-create" action="/recipes/create" method="POST">
-    <input type="text" placeholder="title" name="title"><br>
-    <input type="text" placeholder="image url" name="image"><br>
-    <label for="level">Level:</label>
-    <select name="level" id="level">
-        <option value="Easy Peasy">Easy Peasy</option>
-        <option value="Amateur Chef">Amateur Chef</option>
-        <option value="UltraPro Chef">UltraPro Chef</option>
-    </select><br>
-    <input type="text" placeholder="cuisine" name="cuisine"><br>
-    <label for="">Creator:</label>
-    <select class="form-control" name="creator" type="text" multiple="{{cooks.length}}">
-        {{#each cooks}}
-            <option value="{{this.id}}">{{this.name}}</option>
-        {{/each}}
-    </select><br>
-    <input type="number" placeholder="duration" name="duration" min="0"><br>
-    <label for="dishType">Dish Type:</label>
-    <select name="dishType" id="dishType">
-        <option value="breakfast">Breakfast</option>
-        <option value="main_course">Main Course</option>
-        <option value="soup">Soup</option>
-        <option value="snack">Snack</option>
-        <option value="drink">Drink</option>
-        <option value="dessert">Dessert</option>
-        <option value="other">Other</option>
-    </select><br>
-    <input class="ingredient" type="text" placeholder="ingredient" name="ingredients">
-    <button id="add-ingredient-btn">Add ingredient</button>
-    <button id="delete-ingredient-btn">Delete ingredient</button><br>
-    <button type="submit">Create Recipe</button>
-</form>
+<div class="m-3">
+    <h2 class="mb-4">Create recipe</h2>
+
+    <form id="form-create" action="/recipes/create" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Title" name="title">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Image URL" name="image">
+        </div>
+        <div class="form-group">
+            <label for="level">Level:</label>
+            <select class="field" name="level" id="level">
+                <option value="Easy Peasy">Easy Peasy</option>
+                <option value="Amateur Chef">Amateur Chef</option>
+                <option value="UltraPro Chef">UltraPro Chef</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="field" placeholder="Cuisine" name="cuisine">
+        </div>
+        <div class="form-group">
+            <label for="">Creator:</label>
+            <select class="field" name="creator" type="text" multiple="{{cooks.length}}">
+                {{#each cooks}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" class="field" placeholder="Duration" name="duration" min="0">
+        </div>
+        <div class="form-group">
+        <label for="dishType">Dish Type:</label>
+        <select class="field" name="dishType" id="dishType">
+            <option value="breakfast">Breakfast</option>
+            <option value="main_course">Main Course</option>
+            <option value="soup">Soup</option>
+            <option value="snack">Snack</option>
+            <option value="drink">Drink</option>
+            <option value="dessert">Dessert</option>
+            <option value="other">Other</option>
+        </select>
+        </div>
+        <div class="form-group new-ingredient">
+            <input class="ingredient field-ingredient mr-2 mb-2" type="text" placeholder="Ingredient" name="ingredients">
+
+            <button id="add-ingredient-btn" class="btn">Add ingredient</button>
+            <button id="delete-ingredient-btn" class="btn">Delete ingredient</button>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Create Recipe</button>
+        </div>
+    </form>
+</div>
+
 
 <script>
     let $addIngredientBtn = document.querySelector("#add-ingredient-btn");
-    let $formCreate = document.querySelector("#form-create"); 
+    let $formCreate = document.querySelector(".new-ingredient"); 
     $addIngredientBtn.addEventListener("click", e => {
         e.preventDefault();
         let $newIngredient = document.createElement("input");
-        $newIngredient.setAttribute("class", "ingredient");
+        $newIngredient.classList.add("ingredient", "field-ingredient", "mr-2", "mb-2");
         $newIngredient.setAttribute("type", "text");
-        $newIngredient.setAttribute("placeholder", "ingredient");
+        $newIngredient.setAttribute("placeholder", "Ingredient");
         $newIngredient.setAttribute("name", "ingredients");
         $formCreate.insertBefore($newIngredient, $addIngredientBtn);
     })

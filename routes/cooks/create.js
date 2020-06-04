@@ -10,10 +10,10 @@ app.post("/cooks/create", (req, res)=>{
     let newCook = req.body;    
     Cook.create(newCook)
     .then((cook)=>{
-        res.redirect(`/cooks/detail/${cooks._id}`)
+        res.redirect(`/cooks/detail/${cook._id}`)
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

@@ -9,7 +9,7 @@ app.get("/cooks/detail/:id", (req, res)=>{
         res.render("cooks/detail", {cook: cook})
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

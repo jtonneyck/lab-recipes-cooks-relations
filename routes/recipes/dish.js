@@ -14,7 +14,7 @@ app.post("/recipes/dish/result", (req, res)=>{
         res.render("recipes/list", {recipes: recipe})
     })
     .catch((err)=> {
-        res.render(err);
+        console.log(err);
     })
 })
 

@@ -3,9 +3,21 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }))
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 app.set("views", __dirname + "/views");
+app.use(express.static("public"));
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
+
+app.use(cookieParser())
 
 const hbs = require("hbs");
 hbs.registerPartials(__dirname + "/views/partials");
@@ -39,6 +51,8 @@ app.use("/", require("./routes/cooks/create"));
 app.use("/", require("./routes/cooks/delete"));
 app.use("/", require("./routes/cooks/update"));
 app.use("/", require("./routes/recipes/reviews/create"));
+app.use("/", require("./routes/users/signup"));
+app.use("/", require("./routes/users/login"));
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening", 3000);
