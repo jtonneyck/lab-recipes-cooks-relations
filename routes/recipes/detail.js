@@ -6,6 +6,7 @@ app.get("/recipes/detail/:id", (req, res)=>{
     let objectId = req.params.id
     Recipe.findById(objectId)
         .populate("creator")
+        .populate("reviews")
         .then((recipe)=>{
             res.render("recipes/detail", {recipe: recipe})
         })

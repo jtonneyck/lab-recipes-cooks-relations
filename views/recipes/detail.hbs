@@ -13,5 +13,15 @@
         {{/each}}
     </ul>
 </p>
+<div>
+    <h4>Reviews</h4>
+    {{#each recipe.reviews}}
+        <p>{{this.title}} </p>
+        <p>Score: {{this.score}}</p>
+        <p>{{this.comment}}</p>
+        <p>User: {{this.user}}</p>
+    {{/each}}
+</div>
 <a href="/recipes/delete/{{recipe._id}}">Delete the recipe</a>
-<a href="/recipes/update/{{recipe._id}}">Update recipe</a>
+<a href="/recipes/update/{{recipe._id}}">Update recipe</a><br>
+<a href="/recipes/reviews/{{recipe._id}}">Add review</a>

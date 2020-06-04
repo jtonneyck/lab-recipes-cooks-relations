@@ -38,6 +38,7 @@ app.use("/", require("./routes/cooks/detail"));
 app.use("/", require("./routes/cooks/create"));
 app.use("/", require("./routes/cooks/delete"));
 app.use("/", require("./routes/cooks/update"));
+app.use("/", require("./routes/recipes/reviews/create"));
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening", 3000);
