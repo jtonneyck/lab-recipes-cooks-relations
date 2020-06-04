@@ -12,11 +12,9 @@ app.post('/reviews/add', (req, res) => {
                 recipeId, { $push: { reviews: newReview }}
             )
             .then((recipe) => {
-                res.render("recipes/detailsRecipe", {recipe: recipe});
+                res.redirect(`/recipe/details?id=${recipe._id}`)
             })
-        })
-
-        
+        })  
     .catch((error) => {
       console.log(error)
     })

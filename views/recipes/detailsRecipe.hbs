@@ -22,6 +22,7 @@
             <p class="title-review">{{this.title}} </p>
             <p class="comment">{{this.comments}}</p>
             <p>Reviewer: {{this.reviewer}} <span class="score">Score: {{this.score}}</span></p>
+            <p><a href="/reviews/deleteReview?id={{this._id}}&recipeId={{recipe._id}}">Delete review</a></p>
             </div>
             {{/each}}
         </div>

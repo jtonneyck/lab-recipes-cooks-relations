@@ -8,8 +8,6 @@ app.get("/recipe/details", (req, res) => {
     Recipe.findById(objectId)
     .populate('creator')
     .populate('reviews')
-
-
         .then((recipe) => {
             res.render("recipes/detailsRecipe", {recipe: recipe});
         })
