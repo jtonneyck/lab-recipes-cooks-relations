@@ -10,6 +10,18 @@ const MONGODB_URI = "mongodb://localhost:27017/recipes-cooks-relations";
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const session = require('express-session');
+
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}))
+
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 app.set("partials", path.join(__dirname, "/views/partials"));
@@ -21,6 +33,10 @@ app.use("/", require("./routes/recipes/create"));
 app.use("/", require("./routes/recipes/update"));
 
 app.use("/", require("./routes/cooks/list"));
+app.use("/", require("./routes/cooks/create"));
+
+app.use("/", require("./routes/users/signup"));
+app.use("/", require("./routes/users/login"));
 
 mongoose
   .connect(MONGODB_URI, {

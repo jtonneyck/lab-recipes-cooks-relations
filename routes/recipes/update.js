@@ -1,15 +1,21 @@
 const express = require("express");
 const app = express();
 const Recipe = require("../../models/recipe");
+const Cook = require("../../models/cook");
 
 app.get("/recipes/update", (req, res) => {
     Recipe
         .findById(req.query.id)
         .then((recipe) => {
-            res.render("recipes/update", {recipe: recipe});
+            res.render("recipes/update", {recipe});
         })
         .catch((err) => {
             console.log("err", err)
+        })
+    Cook
+        .find()
+        .then((cooks) => {
+            res.render("recipes/create", {cooks})
         })
 })
 

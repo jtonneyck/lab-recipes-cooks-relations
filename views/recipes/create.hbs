@@ -1,6 +1,15 @@
 <form action="/recipes/create" method="POST">
-<input type="text" name="title" placeholder="Title">
-<input type="text" name="dishType" placeholder="Meal (breakfast, lunch, dinner...)">
-<input type="text" name="creator" placeholder="Creator">
-<button>Create recipe</button>
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="level" placeholder="Level">
+    <input type="text" name="ingredients" placeholder="Ingredients">
+    <input type="text" name="cuisine" placeholder="cuisine">
+    <input type="text" name="dishType" placeholder="Meal (breakfast, lunch, dinner...)">
+    <input type="text" name="duration" placeholder="Duration">
+    <input type="text" name="image" placeholder="Image URL">
+    <select type="text" multiple="{{cooks.length}}" name="creator">
+        {{#each cooks}}
+            <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button>Create recipe</button>
 </form>
