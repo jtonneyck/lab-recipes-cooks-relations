@@ -13,13 +13,16 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(bodyParser.urlencoded({ extended: false }));
 hbs.registerPartials(__dirname + '/views/partials');
 
-const recipesRoute = require("./routes/recipes/list");
+const recipesRoute = require("./routes/recipes/listRecipe");
 const detailsRecipeRoute = require("./routes/recipes/detailsRecipe");
 const createRecipeRoute = require("./routes/recipes/createRecipe");
+const updateRecipeRoute = require("./routes/recipes/updateRecipe");
+const deleteRecipeRoute = require("./routes/recipes/deleteRecipe");
 const listChefsRoute = require("./routes/cooks/listCooks");
 const createChefsRoute = require("./routes/cooks/createCook");
 const deleteChefsRoute = require("./routes/cooks/deleteCook");
 const updateChefsRoute = require("./routes/cooks/updateCook");
+
 
 
 
@@ -50,6 +53,11 @@ app.use("/", createChefsRoute);
 app.use("/", deleteChefsRoute);
 app.use("/", updateChefsRoute);
 app.use("/", createRecipeRoute);
+app.use("/", updateRecipeRoute);
+app.use("/", deleteRecipeRoute);
+
+
+
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening");
