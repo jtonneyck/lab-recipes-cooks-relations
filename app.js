@@ -28,8 +28,18 @@ app.set("partials", path.join(__dirname, "/views/partials"));
 
 app.use(express.static("public"))
 
+// function protectMiddleWare(req, res, next) {
+//   console.log("Middleware here!");
+//   if(req.session.user) next();
+//   else res.redirect("/users/login")
+//   // next();
+// }
+
+// // app.use(protectMiddleWare)
+
+// add protectionMiddleWare to recipe-details, delete this chef and add cook 
 app.use("/", require("./routes/recipes/list"));
-app.use("/", require("./routes/recipes/recipe-details"));
+app.use("/",  require("./routes/recipes/recipe-details"));
 app.use("/", require("./routes/recipes/delete"));
 app.use("/", require("./routes/recipes/create"));
 app.use("/", require("./routes/recipes/update"));

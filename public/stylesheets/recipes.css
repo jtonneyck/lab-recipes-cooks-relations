@@ -6,15 +6,14 @@
 }
 
 .recipe-card {
-    width: 300px;
+    width: 250px;
     margin: 10px;
-    -webkit-box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.17);
-    -moz-box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.17);
-    box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.17);
+    background-color: #ffffff;
+    padding: 25px;
 }
 
 .recipe-card img {
-    max-width: 300px;
+    max-width: 250px;
 }
 
 .card-text {
