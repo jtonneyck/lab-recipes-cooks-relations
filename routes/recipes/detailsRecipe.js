@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const Recipe = require("../../models/Recipe");
 
-app.get("/recipe/details", (req, res) => {
+app.get("/details", (req, res) => {
     let objectId = req.query.id
     Recipe.findById(objectId)
     .populate('creator')

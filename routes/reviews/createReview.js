@@ -3,7 +3,7 @@ const app = express();
 const Recipe = require("../../models/Recipe");
 const Review = require("../../models/Review");
 
-app.post('/reviews/add', (req, res) => {
+app.post('/add', (req, res) => {
     let newReview = req.body
     let recipeId = req.query.recipe_id
     Review.create(newReview)

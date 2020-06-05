@@ -3,7 +3,7 @@ const app = express();
 const Cook = require("../../models/Cook");
 
 
-app.get('/cooks/listCooks', (req, res) => {
+app.get('/listCooks', (req, res) => {
     Cook
     .find({})
     .then(cooks => {

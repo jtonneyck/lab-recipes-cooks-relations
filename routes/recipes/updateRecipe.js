@@ -3,7 +3,7 @@ const app = express();
 const Recipe = require("../../models/Recipe");
 const Cook = require("../../models/Cook");
 
-app.get('/recipe/updateRecipe', (req, res) => {
+app.get('/updateRecipe', (req, res) => {
     Cook.find()
     .then((cooks)=> {
         Recipe.findById(req.query.id)
@@ -45,7 +45,7 @@ app.get('/recipe/updateRecipe', (req, res) => {
     })
 });
 
-app.post("/recipe/updateRecipe", (req, res) => {
+app.post("/updateRecipe", (req, res) => {
     let recipeId = req.body._id;
     Recipe.findByIdAndUpdate(recipeId, {
         title: req.body.title,

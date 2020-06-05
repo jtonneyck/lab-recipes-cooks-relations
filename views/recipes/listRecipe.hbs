@@ -1,13 +1,11 @@
 <div class="container">
-    <h1>The recipes today are:</h1>
+    <h1>Today's recipes</h1>
     <div class="row">
             {{#each recipes}}
                 <div class="col-4">
                     <img src="{{image}}" alt="{{title}} img">
                     <h5><a href="/recipe/details?id={{_id}}">{{title}}</a></h5>
                     <h5>{{creator.name}}</h5>
-                    <img src="{{creator.image}}" alt="{{creator.name}} img">
-
                 </div>
             {{/each}}
     </div>

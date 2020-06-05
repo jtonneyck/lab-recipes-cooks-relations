@@ -1,14 +1,27 @@
-<ul class="nav justify-content-end nav">
+<ul class="nav justify-content-start nav">
     <li class="nav-item">
         <a class="nav-link active" href="/">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/cooks/listCooks">Chefs</a>
+        <a class="nav-link" href="/cook/listCooks">Chefs</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/cooks/createCook">Add Chef</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-item nav-link" href="/recipe/create">Create your own!</a>
-    </li>
+    {{#if loggedIn}}
+        <li class="nav-item">
+            <a class="nav-item nav-link" href="/recipe/create">Add Recipe</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/cook/createCook">Add Chef</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" href="/user/logout">Logout {{user.username}}</a>
+        </li>
+
+    {{else}}
+        <li class="nav-item">
+            <a class="nav-item nav-link" href="/user/signup">Sign up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" href="/user/login">Login</a>
+        </li>
+    {{/if}}
 </ul>

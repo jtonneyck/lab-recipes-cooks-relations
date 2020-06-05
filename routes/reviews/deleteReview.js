@@ -4,7 +4,7 @@ const Recipe = require("../../models/Recipe");
 const Review = require("../../models/Review");
 
 
-app.get("/reviews/deleteReview", (req, res) => {
+app.get("/deleteReview", (req, res) => {
     let reviewToDelete = req.query.id
     let recipeId = req.query.recipeId
     Review.findByIdAndDelete(reviewToDelete)

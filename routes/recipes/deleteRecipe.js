@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const Recipe = require("../../models/Recipe");
 
-app.get("/recipe/deleteRecipe", (req, res) => {
+app.get("/deleteRecipe", (req, res) => {
     let recipeToDelete = req.query.id
     Recipe.findByIdAndDelete(recipeToDelete)
       .then((recipeDeleted) => {

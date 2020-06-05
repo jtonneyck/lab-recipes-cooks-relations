@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 const app = express();
 app.use(cookieParser());
@@ -14,8 +15,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-
-
 
 app.set('view engine', 'hbs');
 
@@ -29,19 +28,15 @@ const detailsRecipeRoute = require("./routes/recipes/detailsRecipe");
 const createRecipeRoute = require("./routes/recipes/createRecipe");
 const updateRecipeRoute = require("./routes/recipes/updateRecipe");
 const deleteRecipeRoute = require("./routes/recipes/deleteRecipe");
-const listChefsRoute = require("./routes/cooks/listCooks");
-const createChefsRoute = require("./routes/cooks/createCook");
-const deleteChefsRoute = require("./routes/cooks/deleteCook");
-const updateChefsRoute = require("./routes/cooks/updateCook");
+const listCookRoute = require("./routes/cooks/listCooks");
+const createCookRoute = require("./routes/cooks/createCook");
+const deleteCookRoute = require("./routes/cooks/deleteCook");
+const updateCookRoute = require("./routes/cooks/updateCook");
 const createReviewRoute = require("./routes/reviews/createReview");
 const deleteReviewRoute = require("./routes/reviews/deleteReview");
-
-
-
-
-
-const Recipe = require('./models/Recipe');
-const Cook = require('./models/Cook');
+const signupUserRoute = require("./routes/users/signup");
+const loginUserRoute = require("./routes/users/login");
+const logoutUserRoute = require("./routes/users/logout");
 
 
 const MONGODB_URI = 'mongodb://localhost:27017/cookbook';
@@ -57,20 +52,47 @@ mongoose
     })
     .catch(error => {
         console.error('Error connecting to the database', error);
-    });
+});
+
+
+function protectMiddleWare(req,res,next){
+    console.log("Middleware called");
+    if(req.session.user){
+        next();
+    } else {
+        res.redirect("/user/login");
+    }
+}
+
+function addToNav(req,res,next){
+    console.log("Middleware for nav called");
+    if(req.session.user){
+        res.locals.loggedIn = true;
+        res.locals.user = req.session.user;
+    }
+    next();
+}
+
+app.use(addToNav);
+
+app.use("/user", loginUserRoute);
+app.use("/user", signupUserRoute);
+app.use("/user", logoutUserRoute);
 
 app.use("/", recipesRoute);
-app.use("/", detailsRecipeRoute);
-app.use("/", listChefsRoute);
-app.use("/", createChefsRoute);
-app.use("/", deleteChefsRoute);
-app.use("/", updateChefsRoute);
-app.use("/", createRecipeRoute);
-app.use("/", updateRecipeRoute);
-app.use("/", deleteRecipeRoute);
-app.use("/", createReviewRoute);
-app.use("/", deleteReviewRoute);
+app.use("/recipe",protectMiddleWare, detailsRecipeRoute);
+app.use("/recipe",protectMiddleWare, createRecipeRoute);
+app.use("/recipe",protectMiddleWare, updateRecipeRoute);
+app.use("/recipe",protectMiddleWare, deleteRecipeRoute);
 
+
+app.use("/cook", listCookRoute);
+app.use("/cook",protectMiddleWare, createCookRoute);
+app.use("/cook",protectMiddleWare, deleteCookRoute);
+app.use("/cook",protectMiddleWare, updateCookRoute);
+
+app.use("/review",protectMiddleWare, createReviewRoute);
+app.use("/review",protectMiddleWare, deleteReviewRoute);
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening");
