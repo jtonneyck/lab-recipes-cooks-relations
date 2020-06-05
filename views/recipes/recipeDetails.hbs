@@ -1,0 +1,30 @@
+<div id="wrap">
+    <div id="img-and-name">
+        <h1>{{recipe.title}}</h1>
+        <img src="{{recipe.image}}" alt="">
+
+        <div id="links">
+            <a href="/delete/{{recipe._id}}">DELETE ME</a>
+            <a href="/update/{{recipe._id}}">UPDATE ME</a>
+        </div>
+    </div>
+    <div id ="details">
+        <h1>{{recipe.level}}</h1>
+        <h1>{{recipe.cuisine}}</h1>
+        <h1>{{recipe.dishType}}</h1>
+        <h1>{{recipe.creator.name}}</h1>
+        <img src="{{recipe.creator.image}}" alt="">
+    </div>
+
+    
+        
+    <form class ="reviews" action="/review" method="post">
+        <input type="text" placeholder = "Let us know what you think" name="review">
+        <input type="text" hidden value="{{recipe._id}}" name="_id">
+        <input type="text" hidden value="{{recipe.title}}" name="title">
+        <p>Leave a rating</p>
+        <input type="range" step="10" min="0" max="100" name="rating">
+        <button type="submit">Submit</button>
+    </form> 
+</div>
+
