@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="stylesheets/recipes.css">
+<div id="recipes-container">
+    {{#each recipes}}
+        <div class="recipe-card">
+            <img src="{{image}}" alt="Recipe image">
+            <div class="card-text">
+                <h2>{{title}}</h2>
+                <a href="/recipes/details?id={{_id}}">See details</a>
+            </div>
+        </div>
+    {{/each}}
+</div>
+<a href="/recipes/create">Add a recipe</a>

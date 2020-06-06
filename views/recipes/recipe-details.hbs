@@ -1,0 +1,12 @@
+<h2>{{recipe.title}}</h2>
+
+<img src="{{recipe.image}}" alt="Dish photo">
+
+<p>Cuisine: {{recipe.cuisine}}</p>
+<p>Meal: {{recipe.dishType}}</p>
+<p>Duration: {{recipe.duration}}</p>
+<p>Level: {{recipe.level}}</p>
+<p>Ingredients: {{recipe.ingredients}}</p>
+<p>Cook: {{recipe.creator.name}}</p>
+<a href="/recipes/delete?id={{recipe._id}}">Delete this recipe</a>
+<a href="/recipes/update">Update recipe</a>

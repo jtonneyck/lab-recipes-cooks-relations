@@ -1,0 +1,27 @@
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+  }
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar .item {
+    padding: 10px;
+}
+
+#navbar a {
+    font-weight: bolder;
+    text-transform: uppercase;
+}
