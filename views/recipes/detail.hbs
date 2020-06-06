@@ -1,0 +1,47 @@
+<div class="m-3">
+    <h1 class="title mb-3">{{recipe.title}}</h1>
+    <div class="row mb-4">
+        <div class="col-6">
+            <img class="img-fluid" src="{{recipe.image}}" alt="">
+        </div>
+        <div class="col-6">
+            <p class="m-1"><strong>Level: </strong>{{recipe.level}}</p>
+            <p class="m-1"><strong>Cuisine: </strong>{{recipe.cuisine}}</p>
+            <p class="m-1"><strong>Duration: </strong>{{recipe.duration}} minutes</p>
+            <p class="m-1"><strong>Ingredients: </strong>
+                <ul>
+                    {{#each recipe.ingredients}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </p>
+        </div>
+    </div>
+    <div>
+        <p><strong>Creator: </strong>{{recipe.creator.name}}</p>
+        <img class="mb-4 img-creator" src="{{recipe.creator.image}}" alt=""> 
+    </div>
+    
+    <div class="mb-4">
+        <a class="btn" href="/recipes/delete/{{recipe._id}}">Delete the recipe</a>
+        <a class="btn" href="/recipes/update/{{recipe._id}}">Update recipe</a><br>
+    </div>
+
+        
+    <div>
+        <h5 class="mb-3">Reviews</h5>
+        <div class="row justify-content-around mb-4">
+            {{#each recipe.reviews}}
+                <div class="review col-5 mb-4">
+                    <p class="m-1"><strong>{{this.title}}</strong></p>
+                    <p class="m-1"><strong>Score: </strong>{{this.score}}</p>
+                    <p class="m-1"><i>{{this.comment}}</i></p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div>
+        <p class="mb-2"><strong>Add a review:</strong></p>
+        {{>reviews}}
+    </div>
+</div>

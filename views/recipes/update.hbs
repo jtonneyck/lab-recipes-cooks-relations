@@ -1,0 +1,97 @@
+<div class="m-3">
+    <h2 class="mb-4">Update recipe</h2>
+
+    <form action="/recipes/update" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" value="{{recipe.title}}" placeholder="title" name="title">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" value="{{recipe.image}}" placeholder="image url" name="image">
+        </div>
+        <div class="form-group">
+            <label for="level">Level:</label>
+            <select class="field" name="level" id="level">
+                {{#if recipe.easy}}
+                    <option selected value="Easy Peasy">Easy Peasy</option>
+                {{else}}
+                    <option value="Easy Peasy">Easy Peasy</option>
+                {{/if}}
+                {{#if recipe.medium}}
+                    <option selected value="Amateur Chef">Amateur Chef</option>
+                {{else}}
+                    <option value="Amateur Chef">Amateur Chef</option>
+                {{/if}}
+                {{#if recipe.hard}}
+                    <option selected value="UltraPro Chef">UltraPro Chef</option>
+                {{else}}
+                    <option value="UltraPro Chef">UltraPro Chef</option>
+                {{/if}}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="field" value="{{recipe.cuisine}}" placeholder="cuisine" name="cuisine">
+        </div>
+        <div class="form-group">
+            <label for="">Creator:</label>
+            <select class="field" name="cooks" type="text" multiple="{{cooks.length}}">
+                {{#each cooks}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="field" type="number"  value="{{recipe.duration}}" placeholder="duration" name="duration" min="0"><br>
+        </div>
+        <div class="form-group">
+        <label for="dishType">Dish Type:</label>
+        <select class="field" name="dishType" value="{{recipe.dishType}}" id="dishType">
+            {{#if recipe.breakfast}}
+                <option selected value="breakfast">Breakfast</option>
+            {{else}}
+                <option value="breakfast">Breakfast</option>
+            {{/if}}
+            {{#if recipe.main_course}}
+                <option selected value="main_course">Main Course</option>
+            {{else}}
+                <option value="main_course">Main Course</option>
+            {{/if}}
+            {{#if recipe.soup}}
+                <option selected value="soup">Soup</option>
+            {{else}}
+                <option value="soup">Soup</option>
+            {{/if}}
+            {{#if recipe.snack}}
+                <option selected value="snack">Snack</option>
+            {{else}}
+                <option value="snack">Snack</option>
+            {{/if}}
+            {{#if recipe.drink}}
+                <option selected value="drink">Drink</option>
+            {{else}}
+                <option value="drink">Drink</option>
+            {{/if}}
+            {{#if recipe.dessert}}
+                <option selected value="dessert">Dessert</option>
+            {{else}}
+                <option value="dessert">Dessert</option>
+            {{/if}}
+            {{#if recipe.other}}
+                <option selected value="other">Other</option>
+            {{else}}
+                <option value="other">Other</option>
+            {{/if}}
+        </select>
+        </div>
+        <div class="form-group">
+        {{#each recipe.ingredients}}
+            <input class="field-ingredient mr-2 mb-2" type="text" value="{{this}}" placeholder="ingredient" name="ingredients">
+        {{/each}}
+        </div>
+        <div class="form-group">
+            <button class="btn">Update Recipe</button>
+        </div>
+
+        <input type="text" hidden value="{{recipe.id}}" name="id">
+        
+    </form>
+</div>
