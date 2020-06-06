@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row py-3 px-2">
+        <h1>{{recipe.title}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{recipe.image}}" class="recipe-img" alt="{{recipe.title}}">
+        </div>
+        <div class="col-4">
+            <h2><i>Ingredients </i></h2>
+            <ul>
+                {{#each recipe.ingredients}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            <p> <b> <i>Level:</i></b> {{recipe.level}}</p>
+            <p> <b> <i>Cuisine : </i></b> {{recipe.cuisine}}</p>
+            <p> <b> <i>Dish type: </i></b> {{recipe.dishType}}</p>
+            <p> <b> <i>Creator: </i></b> 
+                {{#each recipe.creator}}
+                    <span>{{this.name}}</span>
+                {{/each}}
+            </p>
+            <p> <b> <i>Duration: </i></b> {{recipe.duration}}</p>
+            <a class="btn btn-outline-secondary mt-3 mr-2" href="/recipes/delete?id={{recipe._id}}">Delete this recipe</a>
+            <a class="btn btn-outline-secondary mt-3" href="/recipes/update?id={{recipe._id}}">Update this recipe</a>
+        </div>
+        <div class="col-2 px-3">
+            <h3>Did you like this recipe?</h3>
+            <form action="/recipes/review" method="POST">
+                <div class="form-group">
+                    <input type="hidden" value="{{recipe._id}}" name="recipeId" >
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="title..">
+                </div>
+                <div class="form-group">
+                    <label>Review..</label>
+                    <textarea class="form-control" name="text" rows="5" placeholder="review.."></textarea>
+                </div>
+                <button id="add-review" class="btn btn-outline-secondary">Add</button>
+            </form>            
+        </div>
+    </div>
+    <div class="row py-5 px-2 row-cols-5">
+        <h3>Reviews:</h3>
+        <div class="col-12 px-1">
+            {{#if isReviewExist}}
+                {{#each recipe.reviews}}
+                    <div class="w-25 mb-2">
+                        <h6>{{this.title}}</h6>
+                        <p>{{this.text}}</p>
+                    </div>
+                    <hr>
+                {{/each}}
+            {{else}}
+                    <div class="w-25 mb-2"> 
+                        <h6>No one has reviewed it yet !!!</h6>
+                    </div>
+            {{/if}}
+
+        </div>
+    </div>
+
+</div>

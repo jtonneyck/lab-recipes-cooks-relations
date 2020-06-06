@@ -1,0 +1,25 @@
+<div class="form-container">
+    <h1>Sign up</h1>  
+    <form action="/user/signup" method="POST">          
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required="required" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required="required" class="form-control" placeholder="Password">
+        </div>
+
+        {{#if errorMessage}}
+            <div class="error">
+                <p>{{errorMessage}}</p>
+            </div>
+        {{/if}}
+
+        <button class="btn btn-primary btn-block">Sign Up</button>
+    </form>  
+</div>
+
+<script>
+    document.querySelector('.navbar').style.display="none";
+</script>
