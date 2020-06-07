@@ -5,7 +5,7 @@ const Cook = require("../../models/cook");
 
 app.get("/recipes", (req, res) => {
   Recipe.find({})
-    .populate('creator')
+    .populate("creator")
     .then((allRecipesFromDB) => {
       res.render("recipes/list", { allRecipesFromDB: allRecipesFromDB });
     })

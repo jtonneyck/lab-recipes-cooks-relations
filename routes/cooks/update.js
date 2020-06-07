@@ -5,9 +5,7 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/cooks/update", (req, res) => {
-
-  Cook
-    .findById(req.query.id)
+  Cook.findById(req.query.id)
     .then((cook) => {
       res.render("cooks/update", { cook: cook });
     })
@@ -17,12 +15,10 @@ app.get("/cooks/update", (req, res) => {
 });
 
 app.post("/cooks/update", (req, res) => {
-
   let cookId = req.query.id;
-  const {name,image} = req.body;
+  const { name, image } = req.body;
 
-  Cook
-    .findByIdAndUpdate(cookId, {name,image})
+  Cook.findByIdAndUpdate(cookId, { name, image })
     .then((cook) => {
       res.redirect(`/cooks/detail/?id=${cook._id}`);
     })

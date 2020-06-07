@@ -6,15 +6,22 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/create", (req, res) => {
-  Cook
-    .find({})
-    .then(cooks=>{
-      res.render("recipes/create", {cooks:cooks});
-    })
+  Cook.find({}).then((cooks) => {
+    res.render("recipes/create", { cooks: cooks });
+  });
 });
 
 app.post("/create", (req, res) => {
-  let {title,level,cuisine,dishType,creator,duration,image,ingredients,} = req.body;
+  let {
+    title,
+    level,
+    cuisine,
+    dishType,
+    creator,
+    duration,
+    image,
+    ingredients,
+  } = req.body;
 
   ingredients = ingredients.split(",");
 

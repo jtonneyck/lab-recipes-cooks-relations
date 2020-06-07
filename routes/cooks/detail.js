@@ -7,8 +7,7 @@ app.get("/cooks/detail", (req, res) => {
 
   console.log("Cook Id", cookId);
 
-  Cook
-    .findById(cookId)
+  Cook.findById(cookId)
     .then((cook) => {
       res.render("cooks/detail", { cook: cook });
     })

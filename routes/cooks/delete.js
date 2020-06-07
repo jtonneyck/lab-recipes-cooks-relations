@@ -6,8 +6,7 @@ app.get("/cooks/delete", (req, res) => {
   const cookId = req.query.id;
 
   console.log(cookId);
-  Cook
-    .findByIdAndDelete(cookId)
+  Cook.findByIdAndDelete(cookId)
     .then((cook) => {
       res.redirect("/cooks/allCooks");
     })

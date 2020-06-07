@@ -6,19 +6,21 @@ app.get("/detail", (req, res) => {
   const recipeId = req.query.id;
 
   Recipe.findById(recipeId)
-    .populate('creator')
-    .populate('reviews')
+    .populate("creator")
+    .populate("reviews")
     .then((recipe) => {
       let isReviewExist = true;
-      console.log('reviews length' , recipe.reviews.length);
-      
-      if(recipe.reviews.length === 0){
+      console.log("reviews length", recipe.reviews.length);
+
+      if (recipe.reviews.length === 0) {
         isReviewExist = false; //no reviews present
-      }
-      else{
+      } else {
         isReviewExist = true;
       }
-      res.render("recipes/detail", { recipe: recipe, isReviewExist:isReviewExist });
+      res.render("recipes/detail", {
+        recipe: recipe,
+        isReviewExist: isReviewExist,
+      });
     })
     .catch((err) => {
       console.log(err);

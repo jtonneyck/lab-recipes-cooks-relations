@@ -73,7 +73,7 @@ footer p {
   text-align: center;
 }
 
-.form-container{
+.form-container {
   height: 500px;
   display: flex;
   align-items: center;
@@ -85,12 +85,12 @@ footer p {
   margin: 10% auto;
 }
 
-.form-container h1{
-  padding:3% 0 8% 0;
+.form-container h1 {
+  padding: 3% 0 8% 0;
   margin: 1%;
 }
 
-.form-container form{
+.form-container form {
   margin-bottom: 10%;
 }
 
@@ -98,6 +98,6 @@ footer p {
   margin-top: 10%;
 }
 
-.error{
-  color:red;
+.error {
+  color: red;
 }

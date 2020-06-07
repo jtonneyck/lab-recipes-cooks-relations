@@ -9,9 +9,9 @@ app.get("/cooks/create", (req, res) => {
 });
 
 app.post("/cooks/create", (req, res) => {
-  const {name,image} = req.body;
+  const { name, image } = req.body;
 
-  const newCook = new Cook({name,image});
+  const newCook = new Cook({ name, image });
 
   Cook.create(newCook)
     .then((savedCook) => {
