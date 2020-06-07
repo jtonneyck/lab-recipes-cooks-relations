@@ -1,27 +1,41 @@
-<ul class="nav justify-content-start nav">
-    <li class="nav-item">
-        <a class="nav-link active" href="/">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/cook/listCooks">Chefs</a>
-    </li>
-    {{#if loggedIn}}
-        <li class="nav-item">
-            <a class="nav-item nav-link" href="/recipe/create">Add Recipe</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/cook/createCook">Add Chef</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link" href="/user/logout">Logout {{user.username}}</a>
-        </li>
+<div class="bgimage">
+    <div class="navbar navbar-inverse navbar-fixed-top nav">
+        <div class="container-fluid">
+            <div class="brand">
+                <img src="/images/chef.png" alt="">
+                <span id="brandlogo">Our Cookbook</span>
+            </div>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recipe/search">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cook/listCooks">Chefs</a>
+                </li>
+                {{#if loggedIn}}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/recipe/create">Add Recipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cook/createCook">Add Chef</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/user/logout">Logout {{user.username}}</a>
+                    </li>
 
-    {{else}}
-        <li class="nav-item">
-            <a class="nav-item nav-link" href="/user/signup">Sign up</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link" href="/user/login">Login</a>
-        </li>
-    {{/if}}
-</ul>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/user/signup">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/user/login">Login</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container margin-container">
   <form action="/recipe/create" method="post">
       <div class="row m-2">
-        <h1>Add recipe</h1>
+        <h1 class="form-title">Add Recipe</h1>
       </div>
       <div class="row m-2">
         <label for="">Title: </label>
-        <input type="text" name="title">
+        <input type="text" name="title" required> 
       </div>
       <div class="row m-2">
         <label for="">Level:  </label>
@@ -47,7 +47,7 @@
         <input type="text" name="image" value="https://images.media-allrecipes.com/images/75131.jpg">
       </div> 
       <div class="row m-2">
-        <input type="submit"></input>
+        <input type="submit" value="Submit"></input>
       </div>
     </form>
 </div>

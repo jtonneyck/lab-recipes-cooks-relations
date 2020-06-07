@@ -1,12 +1,12 @@
-<div class="container">
-    <h1>Our chefs</h1>
+<div class="container margin-container">
+    <h1 class="title">Our chefs</h1>
     <div class="row">
             {{#each cooks}}
                 <div class="col-4">
                     <img src="{{image}}" alt="{{name}} img">
                     <h5>{{name}}</h5>
-                    <p><a href="/cook/deleteCook?id={{_id}}" class="links">Delete Chef</a></p>
-                    <p><a href="/cook/updateCook?id={{_id}}" class="links">Update Chef</a></p>
+                    <p><a href="/cook/deleteCook?id={{_id}}" class="the-italics">Delete Chef</a></p>
+                    <p><a href="/cook/updateCook?id={{_id}}" class="the-italics">Update Chef</a></p>
                 </div>
             {{/each}}
     </div>

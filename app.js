@@ -28,12 +28,16 @@ const detailsRecipeRoute = require("./routes/recipes/detailsRecipe");
 const createRecipeRoute = require("./routes/recipes/createRecipe");
 const updateRecipeRoute = require("./routes/recipes/updateRecipe");
 const deleteRecipeRoute = require("./routes/recipes/deleteRecipe");
+const searchRecipeRoute = require("./routes/recipes/searchRecipe");
+
 const listCookRoute = require("./routes/cooks/listCooks");
 const createCookRoute = require("./routes/cooks/createCook");
 const deleteCookRoute = require("./routes/cooks/deleteCook");
 const updateCookRoute = require("./routes/cooks/updateCook");
+
 const createReviewRoute = require("./routes/reviews/createReview");
 const deleteReviewRoute = require("./routes/reviews/deleteReview");
+
 const signupUserRoute = require("./routes/users/signup");
 const loginUserRoute = require("./routes/users/login");
 const logoutUserRoute = require("./routes/users/logout");
@@ -80,6 +84,7 @@ app.use("/user", signupUserRoute);
 app.use("/user", logoutUserRoute);
 
 app.use("/", recipesRoute);
+app.use("/recipe", searchRecipeRoute);
 app.use("/recipe",protectMiddleWare, detailsRecipeRoute);
 app.use("/recipe",protectMiddleWare, createRecipeRoute);
 app.use("/recipe",protectMiddleWare, updateRecipeRoute);
