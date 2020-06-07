@@ -1,10 +1,10 @@
 <div class="container margin-container">
     <h1 class="title">Today's Recipes</h1>
-    <div class="row">
+    <div class="row box">
             {{#each recipes}}
                 <div class="col-4">
                     <img src="{{image}}" alt="{{title}} img" class="recipe-img">
-                    <h5><a href="/recipe/details?id={{_id}}">{{title}}</a></h5>
+                    <h5><a href="/recipe/details?id={{_id}}" class="title-paragraph">{{title}}</a></h5>
                     <h5 class="the-italics">{{creator.name}}</h5>
                 </div>
             {{/each}}

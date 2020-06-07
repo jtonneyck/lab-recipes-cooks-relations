@@ -2,19 +2,19 @@
   <h5 class="p-2">Add a review</h5>
   <div class="row m-2">
     <label for="">title:</label>
-    <input type="text" name="title" class="form-control" >
+    <input type="text" name="title" class="form-control" required>
   </div>
 
   <div class="row m-2">
     <label for="">Comments:</label>
   </div>
     <div class="row m-2">
-    <textarea type="text" class="form-control" name="comments"></textarea>
+    <textarea type="text" class="form-control" name="comments" required></textarea>
   </div>
 
   <div class="row m-2">
     <label for="">Score:</label>
-    <input type="number" name="score" class="form-control" >
+    <input type="number" name="score" class="form-control" min="1" max="10"required>
   </div>
 
   <div class="row m-2">
