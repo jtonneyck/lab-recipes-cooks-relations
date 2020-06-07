@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h3>Choice of creating your own cook</h3>
+
+        <a href= "/cookcreate">Create</a>
+
+ {{#each cook}}
+    <h1>{{this.name}}</h1>
+    <img src = "{{this.image}}">
+    <br>
+    <a href = "/cookdelete/{{this.id}} ">Delete</a>
+{{/each}}
+</body>
+</html>

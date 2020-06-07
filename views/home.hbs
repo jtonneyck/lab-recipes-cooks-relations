@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+ {{#each recipe}}
+
+    <h1>{{this.title}}</h1>
+    <h2>{{this.cuisine}}</h2>
+    <h2>{{creator.name}}</h2>
+   <h3>Dish below is createdby this person in pic <img src = "{{creator.image}}"></h3>
+    <p>Click on pic for Recipe info</p>
+    <a href = "/recipes/{{this.id}}" ><img src = "{{this.image}}"></a>
+    <br>
+    <a href = "/recdelete/{{this.id}} ">Delete</a>
+    <a href = "/update/{{this.id}}">Update</a>
+    <a href= "/create">Create</a>
+
+    
+{{/each}}
+</body>
+</html>
