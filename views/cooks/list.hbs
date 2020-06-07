@@ -1,0 +1,16 @@
+<div class="container py-5">
+    <div class="row row-cols-3">
+        {{#each allCooksFromDB}}
+        <div class="col py-2">
+            <a class="recipe-card-anchor" href="/cooks/detail?id={{this._id}}">
+                <div class="card border-info h-100">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+</div>

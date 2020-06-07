@@ -1,0 +1,12 @@
+<div class="container py-5 px-2">
+    <div class="row">
+        <div class="col-6">
+            <img src="{{cook.image}}" class="recipe-img" alt="{{cook.name}}">
+        </div>
+        <div class="col-6">
+            <h1>{{cook.name}}</h1>
+            <a class="btn btn-outline-secondary mt-3 mr-2" href="/cooks/delete?id={{cook._id}}">Delete this cook</a>
+            <a class="btn btn-outline-secondary mt-3" href="/cooks/update?id={{cook._id}}">Update this cook</a>
+        </div>
+    </div>
+</div>
