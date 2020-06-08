@@ -1,4 +1,17 @@
-.DS_Store
-node_modules
+# Environment Variables should NEVER be published
+# For learning purposes we will leave .env visible, but make sure you never push it when working on your projects  
+# .env
+
 package-lock.json
-yarn.lock
+
+# Dependency directory
+# https://docs.npmjs.com/cli/shrinkwrap#caveats
+node_modules
+
+
+
+
+
+
+
+

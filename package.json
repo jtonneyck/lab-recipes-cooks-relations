@@ -1,32 +1,21 @@
 {
-  "name": "lab-mongoose-recipes",
-  "version": "1.0.0",
-  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
-  "main": "index.js",
+  "name": "lab-financial-data-graphing",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "node ./index.js"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
-  "license": "MIT",
   "dependencies": {
-    "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
-    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.1.1",
     "express": "^4.17.1",
-    "express-session": "^1.17.1",
     "hbs": "^4.1.1",
-    "mongoose": "^5.9.16"
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Elko-Lemiso/lab-mongoose-recipes.git"
-  },
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/Elko-Lemiso/lab-mongoose-recipes/issues"
-  },
-  "homepage": "https://github.com/Elko-Lemiso/lab-mongoose-recipes#readme"
+  }
 }
