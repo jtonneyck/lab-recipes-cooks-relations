@@ -1,0 +1,21 @@
+<div class="container margin-container">
+  <form action="/cook/updateCook" method="post">
+    <div class="row m-2">
+      <h1 class="form-title">Update Chef's details</h1>
+    </div>
+    <div class="row m-2">
+      <label for="">Name: </label>
+      <input value="{{cook.name}}" type="text" name="name" required>
+    </div>
+    <div class="row m-2">
+      <label for="">Image: </label>
+      <input value="{{cook.image}}" type="text" name="image">
+    </div> 
+      <div class="row m-2">
+          <input value="{{cook._id}}" type="hidden" name="_id">
+    </div> 
+    <div class="row m-2">
+      <input type="submit" value="Submit"></input>
+    </div>
+  </form>
+</div>

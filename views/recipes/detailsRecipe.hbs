@@ -1,0 +1,33 @@
+<div class="container margin-container">
+    <div class="row">
+        <div class="col-4">
+            <img src="{{recipe.image}}" alt="{{recipe.title}} img">
+            <h5 class="title-paragraph">{{recipe.title}}</h5>
+            <h6>Level: {{recipe.level}}</h6>
+            <h6>Cuisine: {{recipe.cuisine}}</h6>
+            <h6>Course: {{recipe.dishType}}</h6>
+            <h6>Cooking time: {{recipe.duration}} minutes</h6>
+            <h6>Chef: {{recipe.creator.name}}</h6>
+            <img src="{{recipe.creator.image}}" alt="{{recipe.creator.name}} img">
+            <p><a href="/recipe/deleteRecipe?id={{recipe._id}}" class="the-italics">Delete this recipe</a></p>
+            <p><a href="/recipe/updateRecipe?id={{recipe._id}}" class="the-italics">Update this recipe</a></p>
+        </div>
+        <div class="col-4">
+            {{>reviews}}
+        </div>
+        <div class="col-4">
+            <h5 class="p-2">Reviews</h5>
+            {{#each recipe.reviews}}
+            <div class="review-item">
+            <p class="title-review">{{this.title}} </p>
+            <p class="comment">{{this.comments}}</p>
+            <p>Reviewer: {{this.reviewer}} <span class="score">Score: {{this.score}}</span></p>
+            <p><a href="/review/deleteReview?id={{this._id}}&recipeId={{../recipe._id}}" class="the-italics">Delete review</a></p>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div>
+
+

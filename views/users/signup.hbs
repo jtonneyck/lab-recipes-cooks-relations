@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center margin-container">
+    <div class="col-4">
+    <form action="/user/signup" method="post">
+      <div class="row m-2">
+        <h1 class="form-title">Sign Up</h1>
+      </div>
+      <div class="row m-2">
+        <label for="">Username: </label>
+        <input type="text" name="username" required>
+        {{#if error}}
+          <p class="error-message">{{message}}</p>
+        {{/if}}
+      </div>
+      <div class="row m-2">
+        <label for="">Password: </label>
+        <input type="password" name="password" required>
+      </div> 
+      <div class="row m-2">
+        <input type="submit" value="Sign Up"></input>
+      </div>
+    </form>
+  </div>
+</div>

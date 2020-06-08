@@ -1,0 +1,15 @@
+.title-review {
+    font-weight: 600;
+}
+
+.comment {
+    font-style: italic;
+}
+
+.review-item {
+    margin: 10px 5px;
+}
+
+.score {
+    float: right;
+}
