@@ -1,0 +1,7 @@
+{{#each allRecipes}}
+    <div class="recipe-box">
+        <img src="{{this.image}}" alt=""><br>
+        <h3>{{this.title}}</h3>
+        <a href="/recipes/details/{{this._id}}">Find out more here</a>
+    </div>
+{{/each}}

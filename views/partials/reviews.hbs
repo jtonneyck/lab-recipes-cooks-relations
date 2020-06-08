@@ -1,0 +1,7 @@
+<form class ="reviews" action="/review" method="post">
+        <input type="text" hidden value="{{recipe._id}}" name="_id">
+        <input type="text" hidden value="{{recipe.title}}" name="title">
+        <input type="text" placeholder = "Let us know what you think" name="review">
+        <input type="number" value="rating" min="0" max="5" name="rating">
+        <button type="submit">Submit</button>
+</form> 
