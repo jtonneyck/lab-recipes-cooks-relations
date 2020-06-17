@@ -3,7 +3,7 @@ const  app = express();
 const Recipe = require('../../models/Recipe.model');
 const Cook = require('../../models/Cook');
 
-app.post('/create/add', (req, res)=> {
+app.post('/add', (req, res)=> {
     debugger
     console.log(req.body)
     const newRecipe = req.body;
