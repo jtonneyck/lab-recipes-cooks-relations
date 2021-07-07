@@ -1,0 +1,11 @@
+<a href="/{{_id}}" class ="text-decoration-none text-secondary" >
+    <h3>{{title}}</h3>
+    <img src="{{image}}" alt="{{title}}">
+    <p>Cuisine: {{cuisine}}</p>
+    <div class="creator container">
+        <p>Creator: {{creator.name}}</p>
+        <a href="/cook-detail/{{creator._id}}">
+            <img src="{{creator.image}}" alt="{{creator.name}}">
+        </a>
+    </div>
+</a>
